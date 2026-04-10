@@ -39,42 +39,42 @@ export default function ProductSlider({ clothes, shoes }) {
   const offset = -activeSlide * (100 / visible);
 
   return (
-    <div className="slider-section">
+    <div className="sliderSection">
       {modal !== null && (
         <Modal items={items} startIndex={modal} onClose={() => setModal(null)} />
       )}
-      <div className="slider-tabs">
+      <div className="sliderTabs">
         <button 
-          className={`slider-tab${category === "clothes" ? " active" : ""}`} 
+          className={`sliderTab${category === "clothes" ? " active" : ""}`} 
           onClick={() => setCategory("clothes")}
         >
           Clothes
         </button>
         <button 
-          className={`slider-tab${category === "shoes" ? " active" : ""}`} 
+          className={`sliderTab${category === "shoes" ? " active" : ""}`} 
           onClick={() => setCategory("shoes")}
         >
           Shoes
         </button>
       </div>
-      <div className="slider-viewport">
-        <div className="slider-track" style={{ transform: `translateX(${offset}%)` }}>
+      <div className="sliderViewport">
+        <div className="sliderTrack" style={{ transform: `translateX(${offset}%)` }}>
           {items.map((item, i) => (
-            <div className="slide-card" key={item.title} style={{ flex: `0 0 ${100 / visible}%` }}>
-              <div className="slide-inner">
-                <button className="wishlist-btn">🤍</button>
+            <div className="slideCard" key={item.title} style={{ flex: `0 0 ${100 / visible}%` }}>
+              <div className="slideInner">
+                <button className="wishlistBtn">🤍</button>
                 <img src={item.src} alt={item.title} onClick={() => setModal(i)} />
-                <div className="slide-info">
-                  <span className="slide-title">{item.title}</span>
-                  <span className="slide-price">{item.price.toFixed(2)} €</span>
+                <div className="slideInfo">
+                  <span className="slideTitle">{item.title}</span>
+                  <span className="slidePrice">{item.price.toFixed(2)} €</span>
                 </div>
-                <button className="add-to-cart">ADD TO CART</button>
+                <button className="addToCart">ADD TO CART</button>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="slider-controls">
+      <div className="sliderControls">
         <button onClick={prev}>‹</button>
         <button onClick={next}>›</button>
       </div>

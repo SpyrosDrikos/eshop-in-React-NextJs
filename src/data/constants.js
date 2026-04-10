@@ -1,5 +1,5 @@
 // ─── NAVIGATION DATA ────────────────────────────────────────────────────────────
-export const NAV_LINKS = [
+export const navLinks = [
   "Home",
   "The Company",
   "Terms of Use",
@@ -8,7 +8,7 @@ export const NAV_LINKS = [
 ];
 
 // ─── SIDEBAR CATEGORIES ─────────────────────────────────────────────────────────
-export const SIDEBAR_CATEGORIES = [
+export const sidebarCategories = [
   { label: "NEW ARRIVALS", items: [] },
   {
     label: "WOMEN",
@@ -54,7 +54,7 @@ export const SIDEBAR_CATEGORIES = [
 ];
 
 // ─── MEGAMENU ───────────────────────────────────────────────────────────────────
-export const MEGAMENU = [
+export const megamenu = [
   {
     label: "WOMEN",
     cols: [
@@ -111,7 +111,7 @@ export const MEGAMENU = [
 ];
 
 // ─── PRODUCT DATA ───────────────────────────────────────────────────────────────
-export const CLOTHES = [
+export const clothes = [
   {
     price: 19.99,
     src: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&q=80",
@@ -139,7 +139,7 @@ export const CLOTHES = [
   }
 ];
 
-export const SHOES = [
+export const shoes = [
   {
     price: 34.99,
     src: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80",
@@ -167,7 +167,7 @@ export const SHOES = [
   }
 ];
 
-export const HOT_CATEGORIES = [
+export const hotCategories = [
   {
     label: "DRESSES",
     img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80"
@@ -195,7 +195,7 @@ export const HOT_CATEGORIES = [
 ];
 
 // ─── FOOTER DATA ────────────────────────────────────────────────────────────────
-export const FOOTER_COLS = [
+export const footerCols = [
   {
     title: "CONTACT",
     links: ["CONTACT US", "MON-FRI: 10:00 - 18:00", "+30 2310123456", "info@myeshop.gr"]
@@ -219,7 +219,7 @@ export const FOOTER_COLS = [
   }
 ];
 
-export const PREFOOTER_PROMISES = [
+export const prefooterPromises = [
   {
     title: "FREE SHIPPING",
     text: "Orders over €20 for Greece, over €50 for Cyprus."

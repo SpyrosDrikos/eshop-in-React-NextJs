@@ -1,13 +1,14 @@
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash, faHeart, faSearch, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
 
 // ─── TOPBAR ─────────────────────────────────────────────────────────────────────
 function TopBar() {
-  const NAV_LINKS = ["Home", "Company", "Terms of Use", "Contact", "Privacy Policy (EU)"];
+  const navLinks = ["Home", "Company", "Terms of Use", "Contact", "Privacy Policy (EU)"];
   
   return (
-    <div className="top-bar">
-      <div className="top-socials">
+    <div className="topBar">
+      <div className="topSocials">
         <a href="mailto:info@myeshop.gr">info@myeshop.gr</a>
         <span>+30 2310 123 456</span>
         {["facebook","instagram","twitter","pinterest"].map(s => (
@@ -16,8 +17,8 @@ function TopBar() {
           </a>
         ))}
       </div>
-      <div className="top-links">
-        {NAV_LINKS.map(l => <a key={l} href="#">{l}</a>)}
+      <div className="topLinks">
+        {navLinks.map(l => <a key={l} href="#">{l}</a>)}
       </div>
     </div>
   );
@@ -27,18 +28,18 @@ function TopBar() {
 function SidebarDropdownItem({ cat }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="sidebar-cat">
+    <div className="sidebarCat">
       <div
-        className={`sidebar-cat-head${cat.hot ? " hot" : ""}`}
+        className={`sidebarCatHead${cat.hot ? " hot" : ""}`}
         onClick={() => cat.items.length && setOpen(o => !o)}
       >
         <span>{cat.label}</span>
         {cat.items.length > 0 && (
-          <button className={`sidebar-cat-toggle${open ? " open" : ""}`}>&#8964;</button>
+          <button className={`sidebarCatToggle${open ? " open" : ""}`}>&#8964;</button>
         )}
       </div>
       {cat.items.length > 0 && (
-        <div className={`sidebar-dropdown${open ? " open" : ""}`}>
+        <div className={`sidebarDropdown${open ? " open" : ""}`}>
           {cat.items.map(item => <a key={item} href="#">{item}</a>)}
         </div>
       )}
@@ -49,13 +50,13 @@ function SidebarDropdownItem({ cat }) {
 function Sidebar({ open, onClose, sidebarCategories }) {
   return (
     <>
-      <div className={`sidebar-overlay${open ? " open" : ""}`} onClick={onClose} />
+      <div className={`sidebarOverlay${open ? " open" : ""}`} onClick={onClose} />
       <nav className={`sidebar${open ? " open" : ""}`}>
-        <div className="sidebar-head">
+        <div className="sidebarHead">
           <span>MY ESHOP</span>
-          <button className="sidebar-close" onClick={onClose}>×</button>
+          <button className="sidebarClose" onClick={onClose}>×</button>
         </div>
-        <div className="sidebar-search">
+        <div className="sidebarSearch">
           <input placeholder="Αναζήτηση..." />
           <button>🔍</button>
         </div>
@@ -69,22 +70,22 @@ function Sidebar({ open, onClose, sidebarCategories }) {
 function LoginDrop({ open, onToggle }) {
   const [showPw, setShowPw] = useState(false);
   return (
-    <div className="login-wrap">
-      <button className="login-btn" onClick={onToggle}>Login / Sign In</button>
-      <div className={`login-drop${open ? " open" : ""}`}>
-        <div className="login-drop-top">
+    <div className="loginWrap">
+      <button className="loginBtn" onClick={onToggle}>Login / Sign In</button>
+      <div className={`loginDrop${open ? " open" : ""}`}>
+        <div className="loginDropTop">
           <p>New Customer;</p>
           <a href="#register">Create Account →</a>
         </div>
         <label>Username or Email</label>
         <input type="text" />
         <label>Password</label>
-        <div className="pw-wrap">
+        <div className="pwWrap">
           <input type={showPw ? "text" : "password"} />
-          <button className="pw-toggle" onClick={() => setShowPw(p => !p)}>{showPw ? (faEye) : (faEyeSlash)}</button>
+          <FontAwesomeIcon icon={showPw ? faEye : faEyeSlash} className="pwToggle" onClick={() => setShowPw(p => !p)} />
         </div>
-        <button className="login-drop-submit">Login</button>
-        <div className="login-drop-footer">
+        <button className="loginDropSubmit">Login</button>
+        <div className="loginDropFooter">
           <label><input type="checkbox" /> Keep me signed in</label>
           <a href="#">Forgot your password?</a>
         </div>
@@ -96,19 +97,19 @@ function LoginDrop({ open, onToggle }) {
 // ─── MEGAMENU NAV ──────────────────────────────────────────────────────────────
 function MegaNav({ megamenu }) {
   return (
-    <nav className="megamenu-nav">
+    <nav className="megamenuNav">
       <a href="#">NEW ARRIVALS</a>
       {megamenu.map(item => (
-        <div className="mega-item" key={item.label}>
+        <div className="megaItem" key={item.label}>
           <a href="#">{item.label} &#8964;</a>
           <div className="megadrop">
             {item.cols.map((col, i) => (
-              <div className="mega-col" key={i}>
-                {col.title && <div className="mega-col-title">{col.title}</div>}
+              <div className="megaCol" key={i}>
+                {col.title && <div className="megaColTitle">{col.title}</div>}
                 {col.links.map(l => <a key={l} href="#">{l}</a>)}
               </div>
             ))}
-            <div className="mega-img">
+            <div className="megaImg">
               <img src={item.img} alt={item.label} />
               <div className="absolute">
                 <button style={{ backgroundColor: item.btnColor }}>SHOW ALL</button>
@@ -117,7 +118,7 @@ function MegaNav({ megamenu }) {
           </div>
         </div>
       ))}
-      <a href="#" className="hot-sale">HOT SALES</a>
+      <a href="#" className="hotSale">HOT SALES</a>
     </nav>
   );
 }
@@ -153,23 +154,23 @@ export default function Header({ page, setPage, megamenu, sidebarCategories }) {
     <>
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} sidebarCategories={sidebarCategories} />
       <TopBar />
-      <header className={`main-header${hidden ? " hidden" : ""}`}>
-        <button className="hamburger-btn" onClick={() => setSidebarOpen(true)}>
+      <header className={`mainHeader${hidden ? " hidden" : ""}`}>
+        <button className="hamburgerBtn" onClick={() => setSidebarOpen(true)}>
           <span /><span /><span />
         </button>
         <div className="logo" onClick={() => setPage("home")} style={{ cursor: "pointer" }}>
-          <span className="logo-placeholder">MY ESHOP</span>
+          <span className="logoPlaceholder">MY ESHOP</span>
         </div>
         <MegaNav megamenu={megamenu} />
-        <div className="header-actions" ref={loginRef}>
-          <div className="search-wrap">
+        <div className="headerActions" ref={loginRef}>
+          <div className="searchWrap">
             <input placeholder="Search..." />
-            <span>🔍</span>
+          <FontAwesomeIcon icon={faSearch} className="searchBtn" />
           </div>
           <LoginDrop open={loginOpen} onToggle={() => setLoginOpen(o => !o)} />
-          <button className="icon-btn" onClick={() => setPage("register")} title="Account">👤</button>
-          <button className="icon-btn" title="Wishlist">🤍</button>
-          <button className="icon-btn" onClick={() => setPage("cart")} title="Cart">🛒</button>
+          <FontAwesomeIcon icon={faUser} className="iconBtn" onClick={() => setPage("register")} title="Account" />
+          <FontAwesomeIcon icon={faHeart} className="iconBtn" title="Wishlist" />
+          <FontAwesomeIcon icon={faShoppingCart} className="iconBtn" onClick={() => setPage("cart")} title="Cart" />
         </div>
       </header>
     </>

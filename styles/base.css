@@ -34,7 +34,7 @@ button {
 }
 
 /* ─── TOP BAR ────────────────────────────────────────────────────────────────── */
-.top-bar {
+.topBar {
   background: var(--dark);
   color: #ccc;
   font-size: 12px;
@@ -44,27 +44,27 @@ button {
   padding: 6px 32px;
 }
 
-.top-bar a {
+.topBar a {
   color: #ccc;
 }
 
-.top-bar a:hover {
+.topBar a:hover {
   color: #fff;
 }
 
-.top-socials {
+.topSocials {
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-.top-links {
+.topLinks {
   display: flex;
   gap: 20px;
 }
 
 /* ─── MAIN HEADER ────────────────────────────────────────────────────────────── */
-.main-header {
+.mainHeader {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -79,7 +79,7 @@ button {
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-.main-header.hidden {
+.mainHeader.hidden {
   top: -70px;
 }
 
@@ -88,7 +88,7 @@ button {
   object-fit: contain;
 }
 
-.logo-placeholder {
+.logoPlaceholder {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
@@ -97,7 +97,7 @@ button {
 }
 
 /* ─── HAMBURGER ──────────────────────────────────────────────────────────────── */
-.hamburger-btn {
+.hamburgerBtn {
   display: none;
   flex-direction: column;
   gap: 5px;
@@ -106,7 +106,7 @@ button {
   padding: 4px;
 }
 
-.hamburger-btn span {
+.hamburgerBtn span {
   display: block;
   width: 24px;
   height: 2px;
@@ -115,16 +115,16 @@ button {
 }
 
 @media(max-width:900px){
-  .hamburger-btn {
+  .hamburgerBtn {
     display: flex;
   }
-  .megamenu-nav {
+  .megamenuNav {
     display: none !important;
   }
 }
 
 /* ─── MEGAMENU NAV ───────────────────────────────────────────────────────────── */
-.megamenu-nav {
+.megamenuNav {
   display: flex;
   gap: 28px;
   align-items: center;
@@ -133,25 +133,25 @@ button {
   letter-spacing: 1px;
 }
 
-.megamenu-nav > a {
+.megamenuNav > a {
   padding: 4px 0;
   border-bottom: 2px solid transparent;
   transition: 0.2s;
 }
 
-.megamenu-nav > a:hover {
+.megamenuNav > a:hover {
   border-color: var(--red);
 }
 
-.hot-sale {
+.hotSale {
   color: var(--red) !important;
 }
 
-.mega-item {
+.megaItem {
   position: relative;
 }
 
-.mega-item:hover .megadrop {
+.megaItem:hover .megadrop {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
@@ -175,14 +175,14 @@ button {
   z-index: 200;
 }
 
-.mega-col {
+.megaCol {
   display: flex;
   flex-direction: column;
   gap: 8px;
   min-width: 120px;
 }
 
-.mega-col-title {
+.megaColTitle {
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 1.5px;
@@ -190,29 +190,29 @@ button {
   color: var(--dark);
 }
 
-.mega-col a {
+.megaCol a {
   font-size: 13px;
   color: #555;
   transition: color 0.15s;
 }
 
-.mega-col a:hover {
+.megaCol a:hover {
   color: var(--red);
 }
 
-.mega-img {
+.megaImg {
   position: relative;
   width: 160px;
   flex-shrink: 0;
 }
 
-.mega-img img {
+.megaImg img {
   width: 100%;
   height: 160px;
   object-fit: cover;
 }
 
-.mega-img button {
+.megaImg button {
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -227,13 +227,13 @@ button {
 }
 
 /* ─── HEADER ACTIONS ─────────────────────────────────────────────────────────── */
-.header-actions {
+.headerActions {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.header-actions button {
+.headerActions button {
   background: none;
   border: none;
   padding: 4px;
@@ -242,7 +242,7 @@ button {
   justify-content: center;
 }
 
-.search-wrap {
+.searchWrap {
   display: flex;
   align-items: center;
   border: 1px solid var(--border);
@@ -250,22 +250,29 @@ button {
   gap: 6px;
 }
 
-.search-wrap input {
+.searchWrap input {
   border: none;
   outline: none;
   font-size: 13px;
   width: 140px;
+  padding: 2px;
   font-family: var(--font-body);
+  background-color: transparent;
+  color: var(--dark);
 }
 
-.icon-btn {
+.iconBtn {
   background: none;
   border: none;
   padding: 4px;
   position: relative;
 }
+.iconBtn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 
-.login-btn {
+.loginBtn {
   background: var(--dark);
   color: #fff;
   border: none;
@@ -277,7 +284,7 @@ button {
 }
 
 /* ─── SIDEBAR ────────────────────────────────────────────────────────────────── */
-.sidebar-overlay {
+.sidebarOverlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.4);
@@ -287,7 +294,7 @@ button {
   transition: opacity 0.3s;
 }
 
-.sidebar-overlay.open {
+.sidebarOverlay.open {
   opacity: 1;
   pointer-events: all;
 }
@@ -311,7 +318,7 @@ button {
   transform: translateX(0);
 }
 
-.sidebar-head {
+.sidebarHead {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -319,26 +326,26 @@ button {
   border-bottom: 1px solid var(--border);
 }
 
-.sidebar-head span {
+.sidebarHead span {
   font-family: var(--font-display);
   font-size: 18px;
 }
 
-.sidebar-close {
+.sidebarClose {
   background: none;
   border: none;
   font-size: 24px;
   color: var(--mid);
 }
 
-.sidebar-search {
+.sidebarSearch {
   padding: 14px 20px;
   border-bottom: 1px solid var(--border);
   display: flex;
   gap: 8px;
 }
 
-.sidebar-search input {
+.sidebarSearch input {
   flex: 1;
   border: 1px solid var(--border);
   padding: 8px 10px;
@@ -347,11 +354,11 @@ button {
   outline: none;
 }
 
-.sidebar-cat {
+.sidebarCat {
   border-bottom: 1px solid var(--border);
 }
 
-.sidebar-cat-head {
+.sidebarCatHead {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -362,11 +369,11 @@ button {
   cursor: pointer;
 }
 
-.sidebar-cat-head.hot {
+.sidebarCatHead.hot {
   color: var(--red);
 }
 
-.sidebar-cat-toggle {
+.sidebarCatToggle {
   background: none;
   border: none;
   font-size: 18px;
@@ -374,21 +381,21 @@ button {
   transition: transform 0.2s;
 }
 
-.sidebar-cat-toggle.open {
+.sidebarCatToggle.open {
   transform: rotate(180deg);
 }
 
-.sidebar-dropdown {
+.sidebarDropdown {
   overflow: hidden;
   transition: max-height 0.28s ease;
   max-height: 0;
 }
 
-.sidebar-dropdown.open {
+.sidebarDropdown.open {
   max-height: 400px;
 }
 
-.sidebar-dropdown a {
+.sidebarDropdown a {
   display: block;
   padding: 9px 20px 9px 32px;
   font-size: 13px;
@@ -396,17 +403,17 @@ button {
   border-top: 1px solid #f0f0f0;
 }
 
-.sidebar-dropdown a:hover {
+.sidebarDropdown a:hover {
   color: var(--red);
   background: #fafafa;
 }
 
 /* ─── LOGIN DROPDOWN ─────────────────────────────────────────────────────────── */
-.login-wrap {
+.loginWrap {
   position: relative;
 }
 
-.login-drop {
+.loginDrop {
   position: absolute;
   top: calc(100% + 12px);
   right: 0;
@@ -422,13 +429,13 @@ button {
   transform: translateY(6px);
 }
 
-.login-drop.open {
+.loginDrop.open {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
 }
 
-.login-drop label {
+.loginDrop label {
   display: block;
   font-size: 12px;
   font-weight: 600;
@@ -437,8 +444,8 @@ button {
   margin-top: 14px;
 }
 
-.login-drop input[type=text],
-.login-drop input[type=password] {
+.loginDrop input[type=text],
+.loginDrop input[type=password] {
   width: 100%;
   border: 1px solid var(--border);
   padding: 9px 10px;
@@ -447,20 +454,20 @@ button {
   outline: none;
 }
 
-.login-drop input:focus {
+.loginDrop input:focus {
   border-color: var(--dark);
 }
 
-.pw-wrap {
+.pwWrap {
   position: relative;
 }
 
-.pw-wrap input {
+.pwWrap input {
   width: 100%;
   padding-right: 36px;
 }
 
-.pw-toggle {
+.pwToggle {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -472,7 +479,7 @@ button {
   cursor: pointer;
 }
 
-.login-drop-submit {
+.loginDropSubmit {
   width: 100%;
   background: var(--dark);
   color: #fff;
@@ -484,7 +491,7 @@ button {
   margin-top: 16px;
 }
 
-.login-drop-footer {
+.loginDropFooter {
   display: flex;
   justify-content: space-between;
   margin-top: 12px;
@@ -492,15 +499,15 @@ button {
   color: #777;
 }
 
-.login-drop-footer a {
+.loginDropFooter a {
   color: #777;
 }
 
-.login-drop-footer a:hover {
+.loginDropFooter a:hover {
   color: var(--red);
 }
 
-.login-drop-top {
+.loginDropTop {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -509,18 +516,18 @@ button {
   margin-bottom: 4px;
 }
 
-.login-drop-top p {
+.loginDropTop p {
   font-size: 12px;
   color: #777;
 }
 
-.login-drop-top a {
+.loginDropTop a {
   font-size: 12px;
   color: var(--red);
 }
 
 /* ─── TOP BUTTON ─────────────────────────────────────────────────────────────── */
-.top-btn {
+.topBtn {
   position: fixed;
   bottom: 28px;
   right: 28px;
@@ -536,7 +543,7 @@ button {
   pointer-events: none;
 }
 
-.top-btn.visible {
+.topBtn.visible {
   opacity: 1;
   pointer-events: all;
 }

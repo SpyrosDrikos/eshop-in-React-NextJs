@@ -11,7 +11,7 @@ export default function TopButton() {
   
   return (
     <button 
-      className={`top-btn${visible ? " visible" : ""}`} 
+      className={`topBtn${visible ? " visible" : ""}`} 
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
       ↑

@@ -12,13 +12,13 @@ import CartPage from "../pages/CartPage.jsx";
 
 // Data & Constants
 import {
-  MEGAMENU,
-  SIDEBAR_CATEGORIES,
-  CLOTHES,
-  SHOES,
-  HOT_CATEGORIES,
-  FOOTER_COLS,
-  PREFOOTER_PROMISES
+  megamenu,
+  sidebarCategories,
+  clothes,
+  shoes,
+  hotCategories,
+  footerCols,
+  prefooterPromises
 } from "./data/constants";
 
 // Styles
@@ -32,13 +32,13 @@ export default function App() {
   const [page, setPage] = useState("home");
 
   // For demo purposes - these would come from API/state management in production
-  const promises = PREFOOTER_PROMISES;
-  const footerCols = FOOTER_COLS;
-  const clothes = CLOTHES;
-  const shoes = SHOES;
-  const hotCategories = HOT_CATEGORIES;
-  const megamenu = MEGAMENU;
-  const sidebarCategories = SIDEBAR_CATEGORIES;
+  const promises = prefooterPromises;
+  const footerColsData = footerCols;
+  const clothesData = clothes;
+  const shoesData = shoes;
+  const hotCategoriesData = hotCategories;
+  const megamenuData = megamenu;
+  const sidebarCategoriesData = sidebarCategories;
 
   const S = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Jost:wght@300;400;500;600&display=swap');
@@ -62,11 +62,11 @@ export default function App() {
     <>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       <style>{S}</style>
-      <Header page={page} setPage={setPage} megamenu={megamenu} sidebarCategories={sidebarCategories} />
+      <Header page={page} setPage={setPage} megamenu={megamenuData} sidebarCategories={sidebarCategoriesData} />
       <main>
-        {page === "home" && <HomePage clothes={clothes} shoes={shoes} hotCategories={hotCategories} promises={promises} footerCols={footerCols} />}
-        {page === "register" && <RegisterPage promises={promises} footerCols={footerCols} />}
-        {page === "cart" && <CartPage promises={promises} footerCols={footerCols} />}
+        {page === "home" && <HomePage clothes={clothesData} shoes={shoesData} hotCategories={hotCategoriesData} promises={promises} footerCols={footerColsData} />}
+        {page === "register" && <RegisterPage promises={promises} footerCols={footerColsData} />}
+        {page === "cart" && <CartPage promises={promises} footerCols={footerColsData} />}
       </main>
       <TopButton />
     </>

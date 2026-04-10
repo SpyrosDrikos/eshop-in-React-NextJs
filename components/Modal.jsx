@@ -17,12 +17,12 @@ export default function Modal({ items, startIndex, onClose }) {
   }, []);
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-box" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>×</button>
-        <button className="modal-prev" onClick={prev}>‹</button>
+    <div className="modalOverlay" onClick={onClose}>
+      <div className="modalBox" onClick={e => e.stopPropagation()}>
+        <button className="modalClose" onClick={onClose}>×</button>
+        <button className="modalPrev" onClick={prev}>‹</button>
         <img src={items[idx].src} alt={items[idx].title} />
-        <button className="modal-next" onClick={next}>›</button>
+        <button className="modalNext" onClick={next}>›</button>
       </div>
     </div>
   );

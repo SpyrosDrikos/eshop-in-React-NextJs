@@ -1,5 +1,5 @@
 /* ─── REGISTER/ACCOUNT PAGE ──────────────────────────────────────────────────── */
-.reg-container {
+.regContainer {
   display: flex;
   min-height: 460px;
   max-width: 900px;
@@ -7,18 +7,18 @@
   border: 1px solid var(--border);
 }
 
-.reg-form {
+.regForm {
   flex: 1;
   padding: 40px 36px;
 }
 
-.reg-form h2 {
+.regForm h2 {
   font-family: var(--font-display);
   font-size: 26px;
   margin-bottom: 24px;
 }
 
-.reg-form label {
+.regForm label {
   display: block;
   font-size: 12px;
   font-weight: 600;
@@ -27,9 +27,9 @@
   margin-top: 14px;
 }
 
-.reg-form input[type=text],
-.reg-form input[type=password],
-.reg-form input[type=email] {
+.regForm input[type=text],
+.regForm input[type=password],
+.regForm input[type=email] {
   width: 100%;
   border: 1px solid var(--border);
   padding: 10px 12px;
@@ -38,19 +38,19 @@
   outline: none;
 }
 
-.reg-form input:focus {
+.regForm input:focus {
   border-color: var(--dark);
 }
 
-.reg-form .pw-wrap {
+.regForm .pwWrap {
   position: relative;
 }
 
-.reg-form .pw-wrap input {
+.regForm .pwWrap input {
   padding-right: 38px;
 }
 
-.reg-form .pw-toggle {
+.regForm .pwToggle {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -61,7 +61,7 @@
   color: #999;
 }
 
-.reg-submit {
+.regSubmit {
   width: 100%;
   background: var(--dark);
   color: #fff;
@@ -73,22 +73,22 @@
   margin-top: 20px;
 }
 
-.reg-submit:hover {
+.regSubmit:hover {
   background: var(--red);
 }
 
-.reg-privacy {
+.regPrivacy {
   font-size: 11px;
   color: #888;
   line-height: 1.6;
   margin-top: 14px;
 }
 
-.reg-privacy a {
+.regPrivacy a {
   color: var(--red);
 }
 
-.reg-side {
+.regSide {
   flex: 0 0 280px;
   background: var(--dark);
   color: #fff;
@@ -98,20 +98,20 @@
   justify-content: center;
 }
 
-.reg-side h1 {
+.regSide h1 {
   font-family: var(--font-display);
   font-size: 28px;
   margin-bottom: 18px;
 }
 
-.reg-side p {
+.regSide p {
   font-size: 13px;
   line-height: 1.8;
   color: #bbb;
   margin-bottom: 28px;
 }
 
-.reg-toggle-btn {
+.regToggleBtn {
   background: #fff;
   color: var(--dark);
   border: none;
@@ -122,16 +122,16 @@
   align-self: flex-start;
 }
 
-.reg-toggle-btn:hover {
+.regToggleBtn:hover {
   background: var(--red);
   color: #fff;
 }
 
 @media(max-width:700px){
-  .reg-container {
+  .regContainer {
     flex-direction: column;
   }
-  .reg-side {
+  .regSide {
     flex: none;
   }
 }

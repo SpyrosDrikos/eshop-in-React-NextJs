@@ -6,8 +6,8 @@ function Hero() {
   return (
     <div className="hero">
       <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1400&q=80" alt="Hero" />
-      <div className="hero-overlay">
-        <div className="hero-content">
+      <div className="heroOverlay">
+        <div className="heroContent">
           <h1>New Collection<br />Spring 2026</h1>
           <button>Buy Now</button>
         </div>
