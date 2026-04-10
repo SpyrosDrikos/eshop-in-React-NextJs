@@ -1,0 +1,98 @@
+
+.megamenu-menu
+{
+    display: flex;
+    flex: 70%;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.megamenu-menu a
+{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 35px 0;
+}
+
+.megamenu
+{
+    background-color: rgb(255, 255, 255);
+    top: 100%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    display: none;
+    border-top: 1px solid silver;
+}
+
+.options
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.options a
+{
+    color: rgba(0, 0, 0, 0.7);
+    padding: 7px;
+}
+
+.options a:hover
+{
+    color: black;
+    border: none;
+    text-decoration: underline;
+}
+
+.categories > a 
+{
+    border-bottom: 2px solid transparent;
+}
+
+.categories:hover > a
+{
+    border-bottom: 2px solid black;
+}
+
+.categories:hover > .megamenu
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 10;
+}
+
+
+.relative
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+.relative > img
+{
+    max-width: 500px;
+}
+
+.absolute
+{
+    position: absolute;
+    bottom: 25px;
+}
+
+.absolute > button
+{
+    width: 150px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My account/Register</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/megamenu.css">
+    <link rel="stylesheet" href="css/searchbar.css">
+    <link rel="stylesheet" href="css/login-form.css">
+    <link rel="stylesheet" href="css/favicons.css">
+    <link rel="stylesheet" href="css/hamburger.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/register-page.css">
+</head>
+<body>
+    <button id="topBtn" onclick="topFunction()"><img src="images/topButton.png" alt=""></button>
+    <div class="header">
+        <div class="contract-socials">
+            <a href="">info@my-eshop.com</a>
+            <p>+30 2310 123 456</p>
+            <a href="" class="fa fa-facebook" target="_blank"></a>
+            <a href="" class="fa fa-instagram" target="_blank"></a>
+            <a href="" class="fa fa-twitter" target="_blank"></a>
+            <a href="" class="fa fa-pinterest" target="_blank"></a>
+        </div>
+        <div class="list">
+            <ul>
+                <a href="">ΑΡΧΙΚΗ</a>
+                <a href="">Η ΕΤΑΙΡΙΑ</a>
+                <a href="">ΟΡΟΙ ΧΡΗΣΗΣ</a>
+                <a href="">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+                <a href="">ΠΟΛΙΤΙΚΗ COOKIES (EE)</a>
+            </ul>
+        </div>
+    </div>
+    <div class="main-header sticky">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.jpg" alt="Logo"></a>
+        </div>
+        <div class="menu">
+            <div class="hamburger" onclick="openMenu()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <div class="sidebar-menu" id="sidebar">
+                <span class="closeButton" id="closeSidebar"> &times; </span>
+                <div class="search-container">
+                    <input type="text" name="search" placeholder="Αναζήτηση..." class="search-input">
+                    <a href="#" class="search-btn">
+                        <i class="fas fa-search"></i>      
+                    </a>
+                </div>
+                <div class="sidebar-categories">
+                    <a href=""><span style="font-family: Arial, Helvetica, sans-serif;">ΝΕΕΣ ΑΦΙΞΕΙΣ</span></a>
+                </div>
+                <div class="sidebar-categories">
+                    <button class="toggle-dropdown"> &DownArrow; </button> 
+                    <a href="">
+                        <span style="font-family: Arial, Helvetica, sans-serif;">ΓΥΝΑΙΚΕΙΑ</span>  
+                    </a>
+                        <div class="dropdown-options">
+                            <a href="">Τα πιο δημοφιλή</a>
+                            <a href="">Summer Collection</a>
+                            <a href="">Εποχιακά</a>
+                            <a href="">Φορέματα</a>
+                            <a href="">Ολόσωμες Φόρμες</a>
+                            <a href="">Τζιν</a>
+                            <a href="">Μαγιό</a>
+                            <a href="">Εσώρουχα</a>
+                            <a href="">Παπούτσια</a>
+                        </div>
+                </div>
+                <div class="sidebar-categories">
+                    <button class="toggle-dropdown"> &DownArrow; </button> 
+                    <a href="">
+                        <span style="font-family: Arial, Helvetica, sans-serif;">ΑΝΤΡΙΚΑ</span>
+                    </a>
+                        <div class="dropdown-options">
+                            <a href="">Τα πιο δημοφιλή</a>
+                            <a href="">Summer Collection</a>
+                            <a href="">Hoodies</a>
+                            <a href="">Μπλούζες</a>
+                            <a href="">Τζιν</a>
+                            <a href="">Φόρμες</a>
+                            <a href="">Μαγιό</a>
+                            <a href="">Παπούτσια</a>
+                        </div>
+                </div>
+                <div class="sidebar-categories">
+                    <button class="toggle-dropdown"> &DownArrow; </button> 
+                    <a href="">
+                        <span style="font-family: Arial, Helvetica, sans-serif;">ΑΞΕΣΟΥΑΡ </span>
+                    </a>
+                        <div class="dropdown-options">
+                            <a href="">Τσάντες</a>
+                            <a href="">Beauty</a>
+                            <a href="">Γυαλιά</a>
+                            <a href="">Ζώνες</a>
+                            <a href="">Αξεσουάρ Ένδυσης</a>
+                            <a href="">Κοσμήματα</a>
+                            <a href="">Πορτοφόλια</a>
+                            <a href="">Ρολόγια</a>
+                        </div>
+                </div>
+                <div class="sidebar-categories">
+                        <a href=""><span style="font-family: Arial, Helvetica, sans-serif; color: red;">HOT SALES</span></a>
+                </div>
+            </div>
+            <div class="blur"></div>
+            <div class="megamenu-menu">
+                <a href=""><span style="font-family: Arial, Helvetica, sans-serif;">ΝΕΕΣ ΑΦΙΞΕΙΣ</span></a>
+                <div class="categories">
+                    <a href=""><span style="font-family: Arial, Helvetica, sans-serif;">ΓΥΝΑΙΚΕΙΑ &#8964;</span></a>
+                    <div class="megamenu">
+                        <div class="options">
+                            <a href=""><b style="font-size: 16px;">ΠΡΟΤΕΙΝΟΜΕΝΑ</b></a>
+                            <a href="">Νέες κυκλοφορίες</a>
+                            <a href="">Τα πιο δημοφλή</a>
+                            <a href="">Summer Collection</a>
+                            <a href="">Εποχιακά</a>
+                        </div>
+                        <div class="options">
+                            <a href=""><b style="font-size: 16px;">ΕΝΔΥΣΗ</b></a>
+                            <a href="">Φορέματα</a>
+                            <a href="">Ολόσωμες Φόρμες</a>
+                            <a href="">Τζιν</a>
+                            <a href="">Μαγιό</a>
+                            <a href="">Εσώρουχα</a>
+                        </div>
+                        <div class="options">
+                            <a href=""><b style="font-size: 16px;">ΠΑΠΟΥΤΣΙΑ</b></a>
+                            <a href="">Τακούνια</a>
+                            <a href="">Sneakers</a>
+                            <a href="">Αθλητικά</a>
+                            <a href="">Μποτάκια</a>
+                            <a href="">Πλατφόρμες</a>
+                        </div>
+                        <div class="relative">
+                            <img src="images/megamenu-women.jpg" alt="">
+                            <div class="absolute"><button style="background-color: rgb(182,39,30)">SHOW ALL</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="categories">
+                    <a href=""><span style="font-family: Arial, Helvetica, sans-serif;">ΑΝΤΡΙΚΑ &#8964;</span></a>
+                    <div class="megamenu">
+                        <div class="options">
+                            <a href=""><b style="font-size: 16px;">ΠΡΟΤΕΙΝΟΜΕΝΑ</b></a>
+                            <a href="">Νέες κυκλοφορίες</a>
+                            <a href="">Τα πιο δημοφλή</a>
+                            <a href="">Summer Collection</a>
+                            <a href="">Εποχιακά</a>
+                        </div>
+                        <div class="options">
+                            <a href=""><b style="font-size: 16px;">ΕΝΔΥΣΗ</b></a>
+                            <a href="">Hoodies</a>
+                            <a href="">Μπλούζες</a>
+                            <a href="">Τζιν</a>
+                            <a href="">Φόρμες</a>
+                            <a href="">Μαγιό</a>
+                        </div>
+                        <div class="options">
+                            <a href=""><b style="font-size: 16px;">ΠΑΠΟΥΤΣΙΑ</b></a>
+                            <a href="">Sneakers</a>
+                            <a href="">Αθλητικά</a>
+                            <a href="">Μποτάκια</a>
+                            <a href="">Σκαρπίνια</a>
+                        </div>
+                        <div class="relative">
+                            <img src="images/megamenu-men.jpg" alt="">
+                            <div class="absolute"><button style="background-color: rgba(184,180,179,255)">SHOW ALL</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="categories">
+                    <a href=""><span style="font-family: Arial, Helvetica, sans-serif;">ΑΞΕΣΟΥΑΡ &#8964;</span></a>
+                <div class="megamenu">
+                    <div class="options">
+                        <a href="">Τσάντες</a>
+                        <a href="">Beauty</a>
+                        <a href="">Γυαλιά</a>
+                        <a href="">Ζώνες</a>
+                    </div>
+                    <div class="options">
+                        <a href="">Αξεσουάρ Ένδυσης</a>
+                        <a href="">Κοσμήματα</a>
+                        <a href="">Πορτοφόλια</a>
+                        <a href="">Ρολόγια</a>
+                    </div>
+                    <div class="relative">
+                        <img src="images/megamenu-accessories.jpg" alt="">
+                        <div class="absolute"><button style="background-color: rgba(68,59,52,255)">SHOW ALL</button></div>
+                    </div>
+                </div>
+                </div>
+                <a href=""><span style="font-family: Arial, Helvetica, sans-serif; color: red;">HOT SALES</span></a>
+            </div>
+        </div>
+        <div class="button-group">
+            <div class="loginform">
+                <button onclick="window.location.href='register-page.html'"> ΣΥΝΔΕΣΗ / ΕΓΓΡΑΦΗ </button>
+            </div>
+            <div class="search-container">
+                <input type="text" name="search" placeholder="Αναζήτηση..." class="search-input">
+                <a href="#" class="search-btn">
+                    <i class="fas fa-search"></i>      
+                </a>
+            </div>
+            <div class="avatar">
+                <a href="register-page.html"><img src="images/user.png" alt="" style="width: 30px;"></a>
+            </div>
+            <div class="wishlist">
+                <a href=""><img src="images/wishlist.png" alt="" style="width: 30px;"></a>
+            </div>
+            <div class="shopping-cart">
+                <a href=""><img src="images/shopping-cart.png" alt="" style=" width: 30px;"></a>
+            </div>
+        </div>
+    </div>
+    <div class="form-container">
+        <div class="register">
+            <form>
+                <h2> ΕΓΓΡΑΦΗ </h2>
+                <label for="name">Διεύθυνση email </label>
+                <input type="text" required>
+                <label for="password"> Password </label>
+                <div class="password-container">
+                    <input type="password" id="password" required>
+                    <i class="fa fa-eye" style="background-color: transparent;" id="togglePassword"></i>
+                </div>
+                <label for="password-confirm"> Επιβεβαίωση Password </label>
+                <div class="password-container">
+                    <input type="password" id="password-confirm" required>
+                    <i class="fa fa-eye" style="background-color: transparent;" id="togglePasswordConfirm"></i>
+                </div>
+                <p><span style="color: rgb(117, 117, 117);">Τα προσωπικά σας δεδομένα θα χρησιμοποιηθούν για την καλύτερη εξυπηρέτηση σας μέσα στο ηλεκτρονικό μας κατάστημα τόσο κατά την εγγραφή σας όσο και κατά την εκτέλεση των αγορών σας. Για περισσότερες πληροφορίες ανατρέξτε στην <a style="color: rgb(226, 0, 0); text-decoration: none;" href="">πολιτική απορρήτου</a> του καταστήματος μας.</span></p>
+                <button type="submit"> ΕΓΓΡΑΦΗ </button>
+            </form>
+        </div>
+        <div class="login hidden">
+            <form>
+                <h2> ΣΥΝΔΕΣΗ </h2>
+                <label for="name"> Όνομα Χρήστη ή Διεύθυνση email </label>
+                <input type="text" required>
+                <label for="password"> Password </label>
+                <div class="password-container">
+                    <input type="password" id="login-password" required>
+                    <i class="fa fa-eye" style="background-color: transparent;" id="toggleLoginPassword"></i>
+                </div>
+                <button type="submit"> ΣΥΝΔΕΣΗ </button>
+                <div class="gridbox">
+                    <label>
+                        <input type="checkbox" name="remember">Να παραμένω σε σύνδεση.
+                    </label>
+                    <a href="" >Ξέχασες τον κωδικό σου;</a>
+                </div>
+            </form>
+        </div>
+        <div class="text-area">
+            <h1 style="color: black;">Ο λογαριασμός σου</h1>
+            <p>Με την εγγραφή σας στο eShop μας θα έχετε πρόσβαση στην κατάσταση παραγγελίας, το ιστορικό των παραγγελιών σας, τους πόντους σας και πολλά άλλα. Απλά συμπληρώστε τα παρακάτω πεδία και θα δημιουργήσουμε τον λογαριασμό σας άμεσα. Σας ζητούμε μόνο πληροφορίες που θα κάνουν την διαδικασία της αγοράς σας πιο γρήγορη και απλή.</p>
+            <button onclick="toggleForm()"> ΣΥΝΔΕΣΗ </button>
+        </div>
+    </div>
+    <div class="pre-footer">
+        <div class="col-100">
+            <img src="images/payment_methods.png" alt="">
+        </div>
+        <div class="col-50" style="background-color: rgb(231, 231, 231); margin: 0;">
+            <div class="col-25">
+                <h3> ΕΠΙΚΟΙΝΩΝΙΑ </h3>
+                    <p>Τηλεφωνική Επικοινωνία</p>
+                    <p>ΔΕΥ-ΠΑΡ: 10:00 - 18:00</p>
+                    <p>+30 2310123456</p>
+                    <p><a href="">info@my-eshop.com</a></p>
+            </div>
+            <div class="col-25">
+                <h3>ΧΡΗΣΙΜΑ</h3>
+                    <p><a href="">Οδηγός Μεγέθους</a></p>
+                    <p><a href="">Δωροεπιταγές</a></p>
+                    <p><a href="">Επιστροφές & Ακυρώσεις</a></p>
+                    <p><a href="">Τρόποι Αποστολής & Πληρωμής</a></p>
+            </div>
+            <div class="col-25">
+                <h3>ΕΤΑΙΡΕΙΑ</h3>
+                    <p><a href="">Ποιοι είμαστε</a></p>
+                    <p><a href="">Καταστήματα</a></p>
+                    <p><a href="">Εργαστείτε μαζί μας</a></p>
+            </div>
+            <div class="col-25">
+                <h3>ΒΟΗΘΕΙΑ</h3>
+                    <p><a href="">Όροι χρήσης</a></p>
+                   <p><a href="">Όροι χρήσης κάρτας μέλους</a></p>
+                    <p><a href="">Πολιτική απορρήτου</a></p>
+                    <p><a href="">Ρυθμίσεις cookie</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p style="color: white;"><i class="fa fa-map-marker"></i>Greece</p>
+        <p>&copy; Spyros Drikos All Rights Reserved 2024 </p>
+    </div>
+</body>
+<script src="js/topBtn.js"></script>
+<script src="js/sticky.js"></script>
+<script src="js/toggleForm.js"></script>
+<script src="js/hamburger.js"></script>
+<script src="js/dropdownButtons.js"></script>
+<script>
+    togglePasswordVisibility('password', 'togglePassword');
+
+    togglePasswordVisibility('password-confirm', 'togglePasswordConfirm');
+
+    togglePasswordVisibility('login-password', 'toggleLoginPassword');
+</script>
+</html>

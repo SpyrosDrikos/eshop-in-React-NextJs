@@ -1,0 +1,51 @@
+
+.fa 
+{
+    margin: 15px;
+    padding: 10px;
+    font-size: 15px;
+    width: 14px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(235, 235, 235);
+    color: rgb(65, 65, 65);
+    transition: 0.4s;
+}
+
+.fa-facebook:hover 
+{
+    background-color: blue;
+    color: white;
+    transition: 0.4s;
+}
+
+.fa-instagram:hover 
+{
+    background-color: #d62976;
+    color: white;
+    transition: 0.4s;
+}
+
+.fa-twitter:hover 
+{
+    background-color: black;
+    color: white;
+    transition: 0.4s;
+}
+
+.fa-pinterest:hover 
+{
+    background-color: red;
+    color: white;
+    transition: 0.4s;
+}
+
+
+.fa-map-marker
+{
+    color: white;
+    background-color: black;
+    padding: 0;
+    margin: 0 4px 0 100px;
+}
