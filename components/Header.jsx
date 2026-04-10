@@ -1,8 +1,9 @@
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useRef } from "react";
 
 // ─── TOPBAR ─────────────────────────────────────────────────────────────────────
 function TopBar() {
-  const NAV_LINKS = ["ΑΡΧΙΚΗ", "Η ΕΤΑΙΡΙΑ", "ΟΡΟΙ ΧΡΗΣΗΣ", "ΕΠΙΚΟΙΝΩΝΙΑ", "ΠΟΛΙΤΙΚΗ COOKIES (EE)"];
+  const NAV_LINKS = ["Home", "Company", "Terms of Use", "Contact", "Privacy Policy (EU)"];
   
   return (
     <div className="top-bar">
@@ -69,23 +70,23 @@ function LoginDrop({ open, onToggle }) {
   const [showPw, setShowPw] = useState(false);
   return (
     <div className="login-wrap">
-      <button className="login-btn" onClick={onToggle}>ΣΥΝΔΕΣΗ / ΕΓΓΡΑΦΗ</button>
+      <button className="login-btn" onClick={onToggle}>Login / Sign In</button>
       <div className={`login-drop${open ? " open" : ""}`}>
         <div className="login-drop-top">
-          <p>Νέος πελάτης;</p>
-          <a href="#register">Δημιούργησε λογαριασμό →</a>
+          <p>New Customer;</p>
+          <a href="#register">Create Account →</a>
         </div>
-        <label>Όνομα ή email</label>
+        <label>Username or Email</label>
         <input type="text" />
         <label>Password</label>
         <div className="pw-wrap">
           <input type={showPw ? "text" : "password"} />
-          <button className="pw-toggle" onClick={() => setShowPw(p => !p)}>{showPw ? "🙈" : "👁"}</button>
+          <button className="pw-toggle" onClick={() => setShowPw(p => !p)}>{showPw ? (faEye) : (faEyeSlash)}</button>
         </div>
-        <button className="login-drop-submit">ΣΥΝΔΕΣΗ</button>
+        <button className="login-drop-submit">Login</button>
         <div className="login-drop-footer">
-          <label><input type="checkbox" /> Να παραμένω σε σύνδεση</label>
-          <a href="#">Ξέχασες τον κωδικό;</a>
+          <label><input type="checkbox" /> Keep me signed in</label>
+          <a href="#">Forgot your password?</a>
         </div>
       </div>
     </div>
@@ -96,7 +97,7 @@ function LoginDrop({ open, onToggle }) {
 function MegaNav({ megamenu }) {
   return (
     <nav className="megamenu-nav">
-      <a href="#">ΝΕΕΣ ΑΦΙΞΕΙΣ</a>
+      <a href="#">NEW ARRIVALS</a>
       {megamenu.map(item => (
         <div className="mega-item" key={item.label}>
           <a href="#">{item.label} &#8964;</a>
@@ -162,13 +163,13 @@ export default function Header({ page, setPage, megamenu, sidebarCategories }) {
         <MegaNav megamenu={megamenu} />
         <div className="header-actions" ref={loginRef}>
           <div className="search-wrap">
-            <input placeholder="Αναζήτηση..." />
+            <input placeholder="Search..." />
             <span>🔍</span>
           </div>
           <LoginDrop open={loginOpen} onToggle={() => setLoginOpen(o => !o)} />
-          <button className="icon-btn" onClick={() => setPage("register")} title="Λογαριασμός">👤</button>
+          <button className="icon-btn" onClick={() => setPage("register")} title="Account">👤</button>
           <button className="icon-btn" title="Wishlist">🤍</button>
-          <button className="icon-btn" onClick={() => setPage("cart")} title="Καλάθι">🛒</button>
+          <button className="icon-btn" onClick={() => setPage("cart")} title="Cart">🛒</button>
         </div>
       </header>
     </>

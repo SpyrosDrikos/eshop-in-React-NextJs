@@ -1,53 +1,53 @@
 // ─── NAVIGATION DATA ────────────────────────────────────────────────────────────
 export const NAV_LINKS = [
-  "ΑΡΧΙΚΗ",
-  "Η ΕΤΑΙΡΙΑ",
-  "ΟΡΟΙ ΧΡΗΣΗΣ",
-  "ΕΠΙΚΟΙΝΩΝΙΑ",
-  "ΠΟΛΙΤΙΚΗ COOKIES (EE)"
+  "Home",
+  "The Company",
+  "Terms of Use",
+  "Contact",
+  "Privacy Policy (EE)"
 ];
 
 // ─── SIDEBAR CATEGORIES ─────────────────────────────────────────────────────────
 export const SIDEBAR_CATEGORIES = [
-  { label: "ΝΕΕΣ ΑΦΙΞΕΙΣ", items: [] },
+  { label: "NEW ARRIVALS", items: [] },
   {
-    label: "ΓΥΝΑΙΚΕΙΑ",
+    label: "WOMEN",
     items: [
-      "Τα πιο δημοφιλή",
+      "The Most Popular",
       "Summer Collection",
-      "Εποχιακά",
-      "Φορέματα",
-      "Ολόσωμες Φόρμες",
-      "Τζιν",
-      "Μαγιό",
-      "Εσώρουχα",
-      "Παπούτσια"
+      "Seasonal",
+      "Dresses",
+      "Jumpsuits",
+      " Jeans",
+      "Blouses",
+      "Underwear",
+      "Shoes"
     ]
   },
   {
-    label: "ΑΝΤΡΙΚΑ",
+    label: "MEN",
     items: [
-      "Τα πιο δημοφιλή",
+      "The Most Popular",
       "Summer Collection",
       "Hoodies",
-      "Μπλούζες",
-      "Τζιν",
-      "Φόρμες",
-      "Μαγιό",
-      "Παπούτσια"
+      "Shirts",
+      "Pants",
+      "Jackets",
+      "Sweaters",
+      "Shoes"
     ]
   },
   {
-    label: "ΑΞΕΣΟΥΑΡ",
+    label: "ACCESSORIES",
     items: [
-      "Τσάντες",
+      "Bags",
       "Beauty",
-      "Γυαλιά",
-      "Ζώνες",
-      "Αξεσουάρ Ένδυσης",
-      "Κοσμήματα",
-      "Πορτοφόλια",
-      "Ρολόγια"
+      "Sunglasses",
+      "Belts",
+      "Accessories",
+      "Jewelry",
+      "Wallets",
+      "Watches"
     ]
   },
   { label: "HOT SALES", items: [], hot: true }
@@ -56,53 +56,53 @@ export const SIDEBAR_CATEGORIES = [
 // ─── MEGAMENU ───────────────────────────────────────────────────────────────────
 export const MEGAMENU = [
   {
-    label: "ΓΥΝΑΙΚΕΙΑ",
+    label: "WOMEN",
     cols: [
       {
-        title: "ΠΡΟΤΕΙΝΟΜΕΝΑ",
-        links: ["Νέες κυκλοφορίες", "Τα πιο δημοφιλή", "Summer Collection", "Εποχιακά"]
+        title: "The Most Popular",
+        links: ["New Arrivals", "Best Sellers", "Summer Collection", "Seasonal Picks"]
       },
       {
-        title: "ΕΝΔΥΣΗ",
-        links: ["Φορέματα", "Ολόσωμες Φόρμες", "Τζιν", "Μαγιό", "Εσώρουχα"]
+        title: "CLOTHING",
+        links: ["Dresses", "Outfits", "Jeans", "Blouses", "Underwear"]
       },
       {
-        title: "ΠΑΠΟΥΤΣΙΑ",
-        links: ["Τακούνια", "Sneakers", "Αθλητικά", "Μποτάκια", "Πλατφόρμες"]
+        title: "SHOES",
+        links: ["Sneakers", "Athletic Shoes", "Boots", "Sandals", "Platforms"]
       }
     ],
     img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=300&q=80",
     btnColor: "rgb(182,39,30)"
   },
   {
-    label: "ΑΝΤΡΙΚΑ",
+    label: "MEN",
     cols: [
       {
-        title: "ΠΡΟΤΕΙΝΟΜΕΝΑ",
-        links: ["Νέες κυκλοφορίες", "Τα πιο δημοφιλή", "Summer Collection"]
+        title: "The Most Popular",
+        links: ["New Arrivals", "Best Sellers", "Summer Collection"]
       },
       {
-        title: "ΕΝΔΥΣΗ",
-        links: ["Hoodies", "Μπλούζες", "Τζιν", "Φόρμες", "Μαγιό"]
+        title: "CLOTHING",
+        links: ["Hoodies", "Shirts", "Pants", "Jackets", "Sweaters"]
       },
       {
-        title: "ΠΑΠΟΥΤΣΙΑ",
-        links: ["Sneakers", "Αθλητικά", "Μποτάκια", "Σκαρπίνια"]
+        title: "SHOES",
+        links: ["Sneakers", "Athletic Shoes", "Boots", "Sandals", "Platforms"]
       }
     ],
     img: "https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=300&q=80",
     btnColor: "rgba(184,180,179,255)"
   },
   {
-    label: "ΑΞΕΣΟΥΑΡ",
+    label: "ACCESSORIES",
     cols: [
       {
         title: "",
-        links: ["Τσάντες", "Beauty", "Γυαλιά", "Ζώνες"]
+        links: ["Bags", "Beauty", "Sunglasses", "Belts"]
       },
       {
         title: "",
-        links: ["Αξεσουάρ Ένδυσης", "Κοσμήματα", "Πορτοφόλια", "Ρολόγια"]
+        links: ["Accessories", "Jewelry", "Wallets", "Watches"]
       }
     ],
     img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300&q=80",
@@ -115,27 +115,27 @@ export const CLOTHES = [
   {
     price: 19.99,
     src: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&q=80",
-    title: "Δερμάτινη Φούστα"
+    title: "Leather Dress"
   },
   {
     price: 29.99,
     src: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80",
-    title: "Jean Παντελόνι"
+    title: "Jean Pants"
   },
   {
     price: 25.99,
     src: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&q=80",
-    title: "Ανδρικό Παντελόνι"
+    title: "Men's Pants"
   },
   {
     price: 22.99,
     src: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80",
-    title: "Δερμάτινο Jacket"
+    title: "Leather Jacket"
   },
   {
     price: 29.99,
     src: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&q=80",
-    title: "Mini Φόρεμα"
+    title: "Mini Dress"
   }
 ];
 
@@ -143,53 +143,53 @@ export const SHOES = [
   {
     price: 34.99,
     src: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80",
-    title: "Μποτάκια με αλυσίδα"
+    title: "Leather Boots"
   },
   {
     price: 29.99,
     src: "https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=400&q=80",
-    title: "Μποτάκια λευκά"
+    title: "White Boots"
   },
   {
     price: 25.99,
     src: "https://images.unsplash.com/photo-1614252234498-9e39f4c72f26?w=400&q=80",
-    title: "Ανδρικά Σκαρπίνια"
+    title: "Men's Sandals"
   },
   {
     price: 34.99,
     src: "https://images.unsplash.com/photo-1511556820780-d912e42b4980?w=400&q=80",
-    title: "Γόβες Λευκές"
+    title: "White Platforms"
   },
   {
     price: 29.99,
     src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80",
-    title: "Γυναικεία Sneakers"
+    title: "Women's Sneakers"
   }
 ];
 
 export const HOT_CATEGORIES = [
   {
-    label: "ΦΟΡΕΜΑΤΑ",
+    label: "DRESSES",
     img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80"
   },
   {
-    label: "ΦΟΥΣΤΕΣ",
+    label: "SKIRTS",
     img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80"
   },
   {
-    label: "ΜΠΛΟΥΖΕΣ",
+    label: "BLOUSES",
     img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&q=80"
   },
   {
-    label: "ΣΟΡΤΣ",
+    label: "JEANS",
     img: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80"
   },
   {
-    label: "ΑΝΤΡΙΚΑ",
+    label: "MEN'S PANTS",
     img: "https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=600&q=80"
   },
   {
-    label: "ΑΞΕΣΟΥΑΡ",
+    label: "ACCESSORIES",
     img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
   }
 ];
@@ -197,43 +197,43 @@ export const HOT_CATEGORIES = [
 // ─── FOOTER DATA ────────────────────────────────────────────────────────────────
 export const FOOTER_COLS = [
   {
-    title: "ΕΠΙΚΟΙΝΩΝΙΑ",
-    links: ["Τηλεφωνική Επικοινωνία", "ΔΕΥ-ΠΑΡ: 10:00 - 18:00", "+30 2310123456", "info@myeshop.gr"]
+    title: "CONTACT",
+    links: ["CONTACT US", "MON-FRI: 10:00 - 18:00", "+30 2310123456", "info@myeshop.gr"]
   },
   {
-    title: "ΧΡΗΣΙΜΑ",
+    title: "USEFUL LINKS",
     links: [
-      "Οδηγός Μεγέθους",
-      "Δωροεπιταγές",
-      "Επιστροφές & Ακυρώσεις",
-      "Τρόποι Αποστολής & Πληρωμής"
+      "Size Guide",
+      "Gift Cards",
+      "Returns & Exchanges",
+      "Shipping & Payment Methods"
     ]
   },
   {
-    title: "ΕΤΑΙΡΕΙΑ",
-    links: ["Ποιοι είμαστε", "Καταστήματα", "Εργαστείτε μαζί μας"]
+    title: "COMPANY",
+    links: ["Who We Are", "Stores", "Work With Us"]
   },
   {
-    title: "ΒΟΗΘΕΙΑ",
-    links: ["Όροι χρήσης", "Όροι κάρτας μέλους", "Πολιτική απορρήτου", "Ρυθμίσεις cookie"]
+    title: "LEGAL",
+    links: ["Terms of Use", "Member Card Terms", "Privacy Policy", "Cookie Settings"]
   }
 ];
 
 export const PREFOOTER_PROMISES = [
   {
-    title: "ΔΩΡΕΑΝ ΜΕΤΑΦΟΡΙΚΑ",
-    text: "Παραγγελίες άνω των €20 για Ελλάδα, άνω των €50 για Κύπρο."
+    title: "FREE SHIPPING",
+    text: "Orders over €20 for Greece, over €50 for Cyprus."
   },
   {
-    title: "24/7 ΕΞΥΠΗΡΕΤΗΣΗ",
-    text: "Επικοινωνήστε μαζί μας 7 ημέρες στο 2310123456 10:00-18:00."
+    title: "24/7 CUSTOMER SUPPORT",
+    text: "Contact us 7 days a week at 2310123456 10:00-18:00."
   },
   {
-    title: "ΔΩΡΕΑΝ ΑΛΛΑΓΗ",
-    text: "Αλλάξτε το προϊόν σας δωρεάν για κάθε αγορά σας."
+    title: "FREE EXCHANGE",
+    text: "Exchange your product for free with every purchase."
   },
   {
-    title: "ΑΣΦΑΛΕΙΑ ΠΛΗΡΩΜΩΝ",
-    text: "Όλες οι συναλλαγές γίνονται με την ασφάλεια SSL."
+    title: "SECURE PAYMENTS",
+    text: "All transactions are secured with SSL encryption."
   }
 ];

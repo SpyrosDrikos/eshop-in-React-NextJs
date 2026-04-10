@@ -48,13 +48,13 @@ export default function ProductSlider({ clothes, shoes }) {
           className={`slider-tab${category === "clothes" ? " active" : ""}`} 
           onClick={() => setCategory("clothes")}
         >
-          ΕΝΔΥΣΗ
+          Clothes
         </button>
         <button 
           className={`slider-tab${category === "shoes" ? " active" : ""}`} 
           onClick={() => setCategory("shoes")}
         >
-          ΠΑΠΟΥΤΣΙΑ
+          Shoes
         </button>
       </div>
       <div className="slider-viewport">
@@ -68,7 +68,7 @@ export default function ProductSlider({ clothes, shoes }) {
                   <span className="slide-title">{item.title}</span>
                   <span className="slide-price">{item.price.toFixed(2)} €</span>
                 </div>
-                <button className="add-to-cart">ΠΡΟΣΘΗΚΗ ΣΤΟ ΚΑΛΑΘΙ</button>
+                <button className="add-to-cart">ADD TO CART</button>
               </div>
             </div>
           ))}
