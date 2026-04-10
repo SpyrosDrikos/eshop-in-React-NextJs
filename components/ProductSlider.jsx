@@ -1,0 +1,83 @@
+import { useState, useEffect } from "react";
+import Modal from "./Modal";
+
+export default function ProductSlider({ clothes, shoes }) {
+  const [category, setCategory] = useState("clothes");
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [modal, setModal] = useState(null);
+  const items = category === "clothes" ? clothes : shoes;
+
+  const getVisible = () => {
+    if (typeof window === "undefined") return 3;
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 1000) return 2;
+    return 3;
+  };
+  const [visible, setVisible] = useState(getVisible());
+  
+  useEffect(() => {
+    const handler = () => setVisible(getVisible());
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+
+  const maxSlide = items.length - visible;
+  const prev = () => setActiveSlide(s => Math.max(0, s - 1));
+  const next = () => setActiveSlide(s => Math.min(maxSlide, s + 1));
+
+  useEffect(() => {
+    setActiveSlide(0);
+  }, [category]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide(s => (s >= maxSlide ? 0 : s + 1));
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [category, maxSlide]);
+
+  const offset = -activeSlide * (100 / visible);
+
+  return (
+    <div className="slider-section">
+      {modal !== null && (
+        <Modal items={items} startIndex={modal} onClose={() => setModal(null)} />
+      )}
+      <div className="slider-tabs">
+        <button 
+          className={`slider-tab${category === "clothes" ? " active" : ""}`} 
+          onClick={() => setCategory("clothes")}
+        >
+          ΕΝΔΥΣΗ
+        </button>
+        <button 
+          className={`slider-tab${category === "shoes" ? " active" : ""}`} 
+          onClick={() => setCategory("shoes")}
+        >
+          ΠΑΠΟΥΤΣΙΑ
+        </button>
+      </div>
+      <div className="slider-viewport">
+        <div className="slider-track" style={{ transform: `translateX(${offset}%)` }}>
+          {items.map((item, i) => (
+            <div className="slide-card" key={item.title} style={{ flex: `0 0 ${100 / visible}%` }}>
+              <div className="slide-inner">
+                <button className="wishlist-btn">🤍</button>
+                <img src={item.src} alt={item.title} onClick={() => setModal(i)} />
+                <div className="slide-info">
+                  <span className="slide-title">{item.title}</span>
+                  <span className="slide-price">{item.price.toFixed(2)} €</span>
+                </div>
+                <button className="add-to-cart">ΠΡΟΣΘΗΚΗ ΣΤΟ ΚΑΛΑΘΙ</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="slider-controls">
+        <button onClick={prev}>‹</button>
+        <button onClick={next}>›</button>
+      </div>
+    </div>
+  );
+}

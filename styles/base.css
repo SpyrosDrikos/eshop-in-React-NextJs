@@ -1,0 +1,542 @@
+/* ─── GLOBAL STYLES & VARIABLES ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Jost:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red: #b6271e;
+  --dark: #1a1a1a;
+  --mid: #3a3a3a;
+  --light: #f5f5f3;
+  --border: #e0e0e0;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Jost', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #fff;
+  color: var(--dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+/* ─── TOP BAR ────────────────────────────────────────────────────────────────── */
+.top-bar {
+  background: var(--dark);
+  color: #ccc;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 32px;
+}
+
+.top-bar a {
+  color: #ccc;
+}
+
+.top-bar a:hover {
+  color: #fff;
+}
+
+.top-socials {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.top-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* ─── MAIN HEADER ────────────────────────────────────────────────────────────── */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 64px;
+  transition: top 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.main-header.hidden {
+  top: -70px;
+}
+
+.logo img {
+  height: 42px;
+  object-fit: contain;
+}
+
+.logo-placeholder {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--dark);
+}
+
+/* ─── HAMBURGER ──────────────────────────────────────────────────────────────── */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--dark);
+  transition: 0.3s;
+}
+
+@media(max-width:900px){
+  .hamburger-btn {
+    display: flex;
+  }
+  .megamenu-nav {
+    display: none !important;
+  }
+}
+
+/* ─── MEGAMENU NAV ───────────────────────────────────────────────────────────── */
+.megamenu-nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.megamenu-nav > a {
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.megamenu-nav > a:hover {
+  border-color: var(--red);
+}
+
+.hot-sale {
+  color: var(--red) !important;
+}
+
+.mega-item {
+  position: relative;
+}
+
+.mega-item:hover .megadrop {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.megadrop {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  padding: 28px;
+  display: flex;
+  gap: 32px;
+  min-width: 520px;
+  z-index: 200;
+}
+
+.mega-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.mega-col-title {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+  color: var(--dark);
+}
+
+.mega-col a {
+  font-size: 13px;
+  color: #555;
+  transition: color 0.15s;
+}
+
+.mega-col a:hover {
+  color: var(--red);
+}
+
+.mega-img {
+  position: relative;
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.mega-img img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.mega-img button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  border: none;
+  padding: 7px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* ─── HEADER ACTIONS ─────────────────────────────────────────────────────────── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-actions button {
+  background: none;
+  border: none;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  gap: 6px;
+}
+
+.search-wrap input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  width: 140px;
+  font-family: var(--font-body);
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  position: relative;
+}
+
+.login-btn {
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* ─── SIDEBAR ────────────────────────────────────────────────────────────────── */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.sidebar-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background: #fff;
+  z-index: 400;
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-head span {
+  font-family: var(--font-display);
+  font-size: 18px;
+}
+
+.sidebar-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--mid);
+}
+
+.sidebar-search {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+}
+
+.sidebar-search input {
+  flex: 1;
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  outline: none;
+}
+
+.sidebar-cat {
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-cat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.sidebar-cat-head.hot {
+  color: var(--red);
+}
+
+.sidebar-cat-toggle {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #999;
+  transition: transform 0.2s;
+}
+
+.sidebar-cat-toggle.open {
+  transform: rotate(180deg);
+}
+
+.sidebar-dropdown {
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+  max-height: 0;
+}
+
+.sidebar-dropdown.open {
+  max-height: 400px;
+}
+
+.sidebar-dropdown a {
+  display: block;
+  padding: 9px 20px 9px 32px;
+  font-size: 13px;
+  color: #555;
+  border-top: 1px solid #f0f0f0;
+}
+
+.sidebar-dropdown a:hover {
+  color: var(--red);
+  background: #fafafa;
+}
+
+/* ─── LOGIN DROPDOWN ─────────────────────────────────────────────────────────── */
+.login-wrap {
+  position: relative;
+}
+
+.login-drop {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 300px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  padding: 24px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  transform: translateY(6px);
+}
+
+.login-drop.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.login-drop label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  margin-top: 14px;
+}
+
+.login-drop input[type=text],
+.login-drop input[type=password] {
+  width: 100%;
+  border: 1px solid var(--border);
+  padding: 9px 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  outline: none;
+}
+
+.login-drop input:focus {
+  border-color: var(--dark);
+}
+
+.pw-wrap {
+  position: relative;
+}
+
+.pw-wrap input {
+  width: 100%;
+  padding-right: 36px;
+}
+
+.pw-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.login-drop-submit {
+  width: 100%;
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  padding: 11px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-top: 16px;
+}
+
+.login-drop-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+}
+
+.login-drop-footer a {
+  color: #777;
+}
+
+.login-drop-footer a:hover {
+  color: var(--red);
+}
+
+.login-drop-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
+
+.login-drop-top p {
+  font-size: 12px;
+  color: #777;
+}
+
+.login-drop-top a {
+  font-size: 12px;
+  color: var(--red);
+}
+
+/* ─── TOP BUTTON ─────────────────────────────────────────────────────────────── */
+.top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  z-index: 300;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.top-btn.visible {
+  opacity: 1;
+  pointer-events: all;
+}

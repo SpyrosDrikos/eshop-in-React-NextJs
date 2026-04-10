@@ -1,0 +1,137 @@
+/* ─── REGISTER/ACCOUNT PAGE ──────────────────────────────────────────────────── */
+.reg-container {
+  display: flex;
+  min-height: 460px;
+  max-width: 900px;
+  margin: 60px auto;
+  border: 1px solid var(--border);
+}
+
+.reg-form {
+  flex: 1;
+  padding: 40px 36px;
+}
+
+.reg-form h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  margin-bottom: 24px;
+}
+
+.reg-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  margin-top: 14px;
+}
+
+.reg-form input[type=text],
+.reg-form input[type=password],
+.reg-form input[type=email] {
+  width: 100%;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  outline: none;
+}
+
+.reg-form input:focus {
+  border-color: var(--dark);
+}
+
+.reg-form .pw-wrap {
+  position: relative;
+}
+
+.reg-form .pw-wrap input {
+  padding-right: 38px;
+}
+
+.reg-form .pw-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+}
+
+.reg-submit {
+  width: 100%;
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+
+.reg-submit:hover {
+  background: var(--red);
+}
+
+.reg-privacy {
+  font-size: 11px;
+  color: #888;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+
+.reg-privacy a {
+  color: var(--red);
+}
+
+.reg-side {
+  flex: 0 0 280px;
+  background: var(--dark);
+  color: #fff;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reg-side h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.reg-side p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #bbb;
+  margin-bottom: 28px;
+}
+
+.reg-toggle-btn {
+  background: #fff;
+  color: var(--dark);
+  border: none;
+  padding: 12px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  align-self: flex-start;
+}
+
+.reg-toggle-btn:hover {
+  background: var(--red);
+  color: #fff;
+}
+
+@media(max-width:700px){
+  .reg-container {
+    flex-direction: column;
+  }
+  .reg-side {
+    flex: none;
+  }
+}
