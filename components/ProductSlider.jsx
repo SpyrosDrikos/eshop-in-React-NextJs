@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Modal from "./Modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductSlider({ clothes, shoes }) {
   const [category, setCategory] = useState("clothes");
@@ -62,7 +64,7 @@ export default function ProductSlider({ clothes, shoes }) {
           {items.map((item, i) => (
             <div className="slideCard" key={item.title} style={{ flex: `0 0 ${100 / visible}%` }}>
               <div className="slideInner">
-                <button className="wishlistBtn">🤍</button>
+                <FontAwesomeIcon icon={faHeart} className="wishlistIcon" />
                 <img src={item.src} alt={item.title} onClick={() => setModal(i)} />
                 <div className="slideInfo">
                   <span className="slideTitle">{item.title}</span>

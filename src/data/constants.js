@@ -4,7 +4,7 @@ export const navLinks = [
   "The Company",
   "Terms of Use",
   "Contact",
-  "Privacy Policy (EE)"
+  "Privacy Policy (EU)"
 ];
 
 // ─── SIDEBAR CATEGORIES ─────────────────────────────────────────────────────────

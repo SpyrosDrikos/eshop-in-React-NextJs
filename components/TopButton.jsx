@@ -1,20 +1,17 @@
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 
 export default function TopButton() {
   const [visible, setVisible] = useState(false);
   
   useEffect(() => {
-    const h = () => setVisible(window.scrollY > 100);
-    window.addEventListener("scroll", h);
-    return () => window.removeEventListener("scroll", h);
+    const handler = () => setVisible(window.scrollY > 600);
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
   }, []);
   
   return (
-    <button 
-      className={`topBtn${visible ? " visible" : ""}`} 
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-    >
-      ↑
-    </button>
+    <FontAwesomeIcon icon={faArrowUp} iconSize={10} className={`topBtn${visible ? " visible" : ""}`} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} />
   );
 }

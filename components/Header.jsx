@@ -1,4 +1,4 @@
-import { faEye, faEyeSlash, faHeart, faSearch, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash, faHeart, faSearch, faShoppingCart, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
 
@@ -13,7 +13,7 @@ function TopBar() {
         <span>+30 2310 123 456</span>
         {["facebook","instagram","twitter","pinterest"].map(s => (
           <a key={s} href="#" aria-label={s}>
-            <i className={`fa fa-${s}`} />
+            <i style={{ marginLeft: '8px' }} className={`fa fa-${s}`} />
           </a>
         ))}
       </div>
@@ -54,11 +54,11 @@ function Sidebar({ open, onClose, sidebarCategories }) {
       <nav className={`sidebar${open ? " open" : ""}`}>
         <div className="sidebarHead">
           <span>MY ESHOP</span>
-          <button className="sidebarClose" onClick={onClose}>×</button>
+          <FontAwesomeIcon icon={faXmark} className="sidebarClose" onClick={onClose} />
         </div>
         <div className="sidebarSearch">
-          <input placeholder="Αναζήτηση..." />
-          <button>🔍</button>
+          <input placeholder="Search..." />
+          <FontAwesomeIcon icon={faSearch} className="searchBtn" />
         </div>
         {sidebarCategories.map(cat => <SidebarDropdownItem key={cat.label} cat={cat} />)}
       </nav>
@@ -165,7 +165,7 @@ export default function Header({ page, setPage, megamenu, sidebarCategories }) {
         <div className="headerActions" ref={loginRef}>
           <div className="searchWrap">
             <input placeholder="Search..." />
-          <FontAwesomeIcon icon={faSearch} className="searchBtn" />
+            <FontAwesomeIcon icon={faSearch} className="searchBtn" />
           </div>
           <LoginDrop open={loginOpen} onToggle={() => setLoginOpen(o => !o)} />
           <FontAwesomeIcon icon={faUser} className="iconBtn" onClick={() => setPage("register")} title="Account" />

@@ -333,22 +333,26 @@ button {
 
 .sidebarClose {
   background: none;
-  border: none;
-  font-size: 24px;
+  font-size: 18px;
   color: var(--mid);
+  cursor: pointer;
 }
 
 .sidebarSearch {
   padding: 14px 20px;
   border-bottom: 1px solid var(--border);
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
 }
 
 .sidebarSearch input {
   flex: 1;
   border: 1px solid var(--border);
-  padding: 8px 10px;
+  background-color: transparent;
+  color: var(--dark);
+  padding: 12px;
   font-family: var(--font-body);
   font-size: 13px;
   outline: none;
@@ -530,12 +534,13 @@ button {
 .topBtn {
   position: fixed;
   bottom: 28px;
-  right: 28px;
-  width: 44px;
-  height: 44px;
+  right: 35px;
+  padding: 14px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
   background: var(--dark);
   color: #fff;
-  border: none;
   font-size: 20px;
   z-index: 300;
   opacity: 0;
@@ -546,4 +551,8 @@ button {
 .topBtn.visible {
   opacity: 1;
   pointer-events: all;
+}
+
+.topBtn:hover {
+  cursor: pointer;
 }
