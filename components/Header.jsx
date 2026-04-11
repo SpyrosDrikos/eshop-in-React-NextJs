@@ -74,14 +74,12 @@ function LoginDrop({ open, onToggle }) {
       <button className="loginBtn" onClick={onToggle}>Login / Sign In</button>
       <div className={`loginDrop${open ? " open" : ""}`}>
         <div className="loginDropTop">
-          <p>New Customer;</p>
-          <a href="#register">Create Account →</a>
+          <p>Dont you have an account?</p>
+          <a href="#register">Create one →</a>
         </div>
-        <label>Username or Email</label>
-        <input type="text" />
-        <label>Password</label>
+        <input type="text" placeholder="Username or Email.."/>
         <div className="pwWrap">
-          <input type={showPw ? "text" : "password"} />
+          <input type={showPw ? "text" : "password"} placeholder="Password..."/>
           <FontAwesomeIcon icon={showPw ? faEye : faEyeSlash} className="pwToggle" onClick={() => setShowPw(p => !p)} />
         </div>
         <button className="loginDropSubmit">Login</button>
@@ -101,7 +99,7 @@ function MegaNav({ megamenu }) {
       <a href="#">NEW ARRIVALS</a>
       {megamenu.map(item => (
         <div className="megaItem" key={item.label}>
-          <a href="#">{item.label} &#8964;</a>
+          <a href="#">{item.label}</a>
           <div className="megadrop">
             {item.cols.map((col, i) => (
               <div className="megaCol" key={i}>
@@ -118,7 +116,7 @@ function MegaNav({ megamenu }) {
           </div>
         </div>
       ))}
-      <a href="#" className="hotSale">HOT SALES</a>
+      <a href="#" className="hotSale"> SALES</a>
     </nav>
   );
 }

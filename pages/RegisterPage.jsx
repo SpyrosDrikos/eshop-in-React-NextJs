@@ -12,7 +12,7 @@ export default function RegisterPage({ promises, footerCols }) {
     <div style={{ padding: "0 16px" }}>
       <div className="regContainer">
         {mode === "register" ? (
-          <div className="reg-form">
+          <div className="regForm">
             <h2>Register</h2>
             <label>Email Address</label>
             <input type="email" />
@@ -32,7 +32,7 @@ export default function RegisterPage({ promises, footerCols }) {
             <button className="regSubmit">Register</button>
           </div>
         ) : (
-          <div className="reg-form">
+          <div className="regForm">
             <h2>Login</h2>
             <label>Username or Email</label>
             <input type="text" />
