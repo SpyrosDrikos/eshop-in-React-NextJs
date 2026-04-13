@@ -51,13 +51,98 @@
   color: #fff;
 }
 
+/* ─── PROMO BANNER SECTION ───────────────────────────────────────────────────── */
+.promoBanner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 48px 0;
+}
+
+.promoBanner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.promoBannerContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  color: #fff;
+  padding: 40px;
+}
+
+.promoBannerTitle {
+  font-family: var(--font-display);
+  font-size: 48px;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.promoBannerSubtitle {
+  font-size: 16px;
+  margin-bottom: 24px;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+.promoBannerBtn {
+  display: inline-block;
+  background: #fff;
+  color: var(--dark);
+  padding: 14px 36px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  border-radius: 3px;
+}
+
+.promoBannerBtn:hover {
+  background: var(--red);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .promoBanner {
+    min-height: 220px;
+    margin: 32px 0;
+  }
+
+  .promoBannerTitle {
+    font-size: 32px;
+  }
+
+  .promoBannerSubtitle {
+    font-size: 14px;
+  }
+
+  .promoBannerContent {
+    padding: 24px;
+  }
+}
+
 /* ─── HOT CATEGORIES ─────────────────────────────────────────────────────────── */
 .sectionTitle {
   text-align: center;
   font-family: var(--font-display);
   font-size: 32px;
-  padding: 48px 0 24px;
+  padding: 12px 0;
   letter-spacing: 1px;
+  background-color: rgba(104, 20, 14, 0.9);
+  text-shadow: 2px 2px 12px rgb(170, 170, 170);
 }
 
 .catGrid {
@@ -211,13 +296,64 @@
 .slideInfo {
   padding: 12px 10px 14px;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .slideTitle {
   font-size: 13px;
   font-weight: 500;
+}
+
+.slidePrice {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--red);
+}
+
+.colorSelector,
+.sizeSelector {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.colorSelector label,
+.sizeSelector label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.colorOptions,
+.sizeOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.colorOption,
+.sizeOption {
+  padding: 6px 10px;
+  font-size: 11px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 3px;
+}
+
+.colorOption:hover,
+.sizeOption:hover {
+  border-color: var(--red);
+}
+
+.colorOption.active,
+.sizeOption.active {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
 }
 
 .addToCart {

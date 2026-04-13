@@ -5,6 +5,8 @@ import { faChevronLeft, faChevronRight, faHeart } from "@fortawesome/free-solid-
 export default function ProductSlider({ clothes, shoes }) {
   const [category, setCategory] = useState("clothes");
   const [activeSlide, setActiveSlide] = useState(0);
+  const [selectedColors, setSelectedColors] = useState({});
+  const [selectedSizes, setSelectedSizes] = useState({});
   const items = category === "clothes" ? clothes : shoes;
 
   const getVisible = () => {
@@ -38,6 +40,14 @@ export default function ProductSlider({ clothes, shoes }) {
 
   const offset = -activeSlide * (100 / visible);
 
+  const handleColorChange = (itemTitle, color) => {
+    setSelectedColors(prev => ({ ...prev, [itemTitle]: color }));
+  };
+
+  const handleSizeChange = (itemTitle, size) => {
+    setSelectedSizes(prev => ({ ...prev, [itemTitle]: size }));
+  };
+
   return (
     <div className="sliderSection">
       <div className="sliderViewport">
@@ -53,6 +63,38 @@ export default function ProductSlider({ clothes, shoes }) {
                 <img src={item.src} alt={item.title}/>
                 <div className="slideInfo">
                   <span className="slideTitle">{item.title}</span>
+                  <span className="slidePrice">${item.price}</span>
+                  
+                  <div className="colorSelector">
+                    <label>Color:</label>
+                    <div className="colorOptions">
+                      {item.colors.map(color => (
+                        <button
+                          key={color}
+                          className={`colorOption${selectedColors[item.title] === color ? " active" : ""}`}
+                          onClick={() => handleColorChange(item.title, color)}
+                          title={color}
+                        >
+                          {color}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="sizeSelector">
+                    <label>Size:</label>
+                    <div className="sizeOptions">
+                      {item.sizes.map(size => (
+                        <button
+                          key={size}
+                          className={`sizeOption${selectedSizes[item.title] === size ? " active" : ""}`}
+                          onClick={() => handleSizeChange(item.title, size)}
+                        >
+                          {size}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <button className="addToCart">ADD TO CART</button>
               </div>

@@ -4,7 +4,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function RegisterPage({ promises, footerCols }) {
-  const [mode, setMode] = useState("register"); // "register" | "login"
+  const [mode, setMode] = useState("login"); // "register" | "login"
   const [showPw, setShowPw] = useState(false);
   const [showPw2, setShowPw2] = useState(false);
 

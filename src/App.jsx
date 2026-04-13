@@ -44,6 +44,7 @@ export default function App() {
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Jost:wght@300;400;500;600&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
+    --body-color: #f9f6f0;
     --red: #b6271e;
     --dark: #1a1a1a;
     --mid: #3a3a3a;
@@ -52,7 +53,7 @@ export default function App() {
     --font-display: 'Playfair Display', serif;
     --font-body: 'Jost', sans-serif;
   }
-  body { font-family: var(--font-body); background: #fff; color: var(--dark); }
+  body { font-family: var(--font-body); background-color: var(--body-color); color: var(--dark); }
   a { text-decoration: none; color: inherit; }
   button { cursor: pointer; font-family: var(--font-body); }
   main { min-height: calc(100vh - 400px); }

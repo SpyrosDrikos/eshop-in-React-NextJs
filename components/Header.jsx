@@ -1,6 +1,8 @@
-import { faEye, faEyeSlash, faHeart, faSearch, faShoppingCart, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faHeart, faSearch, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
+import SearchDropdown from "./SearchDropdown";
+import { hotSearches, recommendedSearches } from "../src/data/constants";
 
 // ─── TOPBAR ─────────────────────────────────────────────────────────────────────
 function TopBar() {
@@ -56,41 +58,13 @@ function Sidebar({ open, onClose, sidebarCategories }) {
           <span>MY ESHOP</span>
           <FontAwesomeIcon icon={faXmark} className="sidebarClose" onClick={onClose} />
         </div>
-        <div className="sidebarSearch">
-          <input placeholder="Search..." />
-          <FontAwesomeIcon icon={faSearch} className="searchBtn" />
-        </div>
         {sidebarCategories.map(cat => <SidebarDropdownItem key={cat.label} cat={cat} />)}
       </nav>
     </>
   );
 }
 
-// ─── LOGIN DROPDOWN ────────────────────────────────────────────────────────────
-function LoginDrop({ open, onToggle }) {
-  const [showPw, setShowPw] = useState(false);
-  return (
-    <div className="loginWrap">
-      <button className="loginBtn" onClick={onToggle}>Login / Sign In</button>
-      <div className={`loginDrop${open ? " open" : ""}`}>
-        <div className="loginDropTop">
-          <p>Dont you have an account?</p>
-          <a href="#register">Create one →</a>
-        </div>
-        <input type="text" placeholder="Username or Email.."/>
-        <div className="pwWrap">
-          <input type={showPw ? "text" : "password"} placeholder="Password..."/>
-          <FontAwesomeIcon icon={showPw ? faEye : faEyeSlash} className="pwToggle" onClick={() => setShowPw(p => !p)} />
-        </div>
-        <button className="loginDropSubmit">Login</button>
-        <div className="loginDropFooter">
-          <label><input type="checkbox" /> Keep me signed in</label>
-          <a href="#">Forgot your password?</a>
-        </div>
-      </div>
-    </div>
-  );
-}
+
 
 // ─── MEGAMENU NAV ──────────────────────────────────────────────────────────────
 function MegaNav({ megamenu }) {
@@ -109,9 +83,7 @@ function MegaNav({ megamenu }) {
             ))}
             <div className="megaImg">
               <img src={item.img} alt={item.label} />
-              <div className="absolute">
-                <button style={{ backgroundColor: item.btnColor }}>SHOW ALL</button>
-              </div>
+              <button style={{ backgroundColor: item.btnColor }}>SHOW ALL</button>
             </div>
           </div>
         </div>
@@ -124,7 +96,7 @@ function MegaNav({ megamenu }) {
 // ─── HEADER ───────────────────────────────────────────────────────────────────
 export default function Header({ page, setPage, megamenu, sidebarCategories }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const prevScroll = useRef(0);
 
@@ -136,16 +108,6 @@ export default function Header({ page, setPage, megamenu, sidebarCategories }) {
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Close login drop when clicking outside
-  const loginRef = useRef();
-  useEffect(() => {
-    const handler = e => {
-      if (loginRef.current && !loginRef.current.contains(e.target)) setLoginOpen(false);
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   return (
@@ -160,15 +122,18 @@ export default function Header({ page, setPage, megamenu, sidebarCategories }) {
           <span className="logoPlaceholder">MY ESHOP</span>
         </div>
         <MegaNav megamenu={megamenu} />
-        <div className="headerActions" ref={loginRef}>
-          <div className="searchWrap">
-            <input placeholder="Search..." />
-            <FontAwesomeIcon icon={faSearch} className="searchBtn" />
-          </div>
-          <LoginDrop open={loginOpen} onToggle={() => setLoginOpen(o => !o)} />
+        <div className="headerActions">
+          <SearchDropdown
+            open={searchOpen}
+            onClose={() => setSearchOpen(false)}
+            hotSearches={hotSearches}
+            recommendedSearches={recommendedSearches}
+            onSearch={(query) => console.log("Search for:", query)}
+          />
+          <FontAwesomeIcon icon={faSearch} className="iconBtn" onClick={() => setSearchOpen(!searchOpen)} title="Search" />
           <FontAwesomeIcon icon={faUser} className="iconBtn" onClick={() => setPage("register")} title="Account" />
           <FontAwesomeIcon icon={faHeart} className="iconBtn" title="Wishlist" />
-          <FontAwesomeIcon icon={faShoppingCart} className="iconBtn" onClick={() => setPage("cart")} title="Cart" />
+          <FontAwesomeIcon icon={faBagShopping} className="iconBtn" onClick={() => setPage("cart")} title="Cart" />
         </div>
       </header>
     </>
