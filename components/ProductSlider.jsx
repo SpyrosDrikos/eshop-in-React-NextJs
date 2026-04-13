@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductSlider({ clothes, shoes }) {
   const [category, setCategory] = useState("clothes");
   const [activeSlide, setActiveSlide] = useState(0);
-  const [modal, setModal] = useState(null);
   const items = category === "clothes" ? clothes : shoes;
 
   const getVisible = () => {
@@ -24,8 +22,8 @@ export default function ProductSlider({ clothes, shoes }) {
   }, []);
 
   const maxSlide = items.length - visible;
-  const prev = () => setActiveSlide(s => Math.max(0, s - 1));
-  const next = () => setActiveSlide(s => Math.min(maxSlide, s + 1));
+  const next = () => setActiveSlide(s => (s >= maxSlide ? 0 : s + 1));
+  const prev = () => setActiveSlide(s => (s <= 0 ? maxSlide : s - 1));
 
   useEffect(() => {
     setActiveSlide(0);
@@ -42,43 +40,40 @@ export default function ProductSlider({ clothes, shoes }) {
 
   return (
     <div className="sliderSection">
-      {modal !== null && (
-        <Modal items={items} startIndex={modal} onClose={() => setModal(null)} />
-      )}
-      <div className="sliderTabs">
-        <button 
-          className={`sliderTab${category === "clothes" ? " active" : ""}`} 
-          onClick={() => setCategory("clothes")}
-        >
-          Clothes
-        </button>
-        <button 
-          className={`sliderTab${category === "shoes" ? " active" : ""}`} 
-          onClick={() => setCategory("shoes")}
-        >
-          Shoes
-        </button>
-      </div>
       <div className="sliderViewport">
+        <div className="sliderControls">
+          <FontAwesomeIcon icon={faChevronLeft} onClick={prev} className={`controlBtn`} />
+          <FontAwesomeIcon icon={faChevronRight} onClick={next} className={`controlBtn`}/>
+        </div>
         <div className="sliderTrack" style={{ transform: `translateX(${offset}%)` }}>
           {items.map((item, i) => (
             <div className="slideCard" key={item.title} style={{ flex: `0 0 ${100 / visible}%` }}>
               <div className="slideInner">
-                <FontAwesomeIcon icon={faHeart} className="wishlistIcon" />
-                <img src={item.src} alt={item.title} onClick={() => setModal(i)} />
+                <FontAwesomeIcon icon={faHeart} className="wishlistBtn" />
+                <img src={item.src} alt={item.title}/>
                 <div className="slideInfo">
                   <span className="slideTitle">{item.title}</span>
-                  <span className="slidePrice">{item.price.toFixed(2)} €</span>
                 </div>
                 <button className="addToCart">ADD TO CART</button>
               </div>
             </div>
           ))}
+          
         </div>
-      </div>
-      <div className="sliderControls">
-        <button onClick={prev}>‹</button>
-        <button onClick={next}>›</button>
+        <div className="sliderWrapper">
+          <button 
+            className={`sliderTab${category === "clothes" ? " active" : ""}`} 
+            onClick={() => setCategory("clothes")}
+          >
+            Clothes
+          </button>
+          <button 
+            className={`sliderTab${category === "shoes" ? " active" : ""}`} 
+            onClick={() => setCategory("shoes")}
+          >
+            Shoes
+          </button>
+        </div>
       </div>
     </div>
   );

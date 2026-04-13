@@ -109,20 +109,20 @@
 
 /* ─── PRODUCT SLIDER ─────────────────────────────────────────────────────────── */
 .sliderSection {
-  padding: 0 0 56px;
+  padding: 28px 0;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.sliderTabs {
+.sliderWrapper {
   display: flex;
-  justify-content: center;
   gap: 0;
-  margin-bottom: 28px;
+  margin: 28px 8px;
 }
 
 .sliderTab {
   background: none;
+  color: var(--dark);
   border: 2px solid var(--dark);
   padding: 10px 40px;
   font-size: 13px;
@@ -178,7 +178,6 @@
   aspect-ratio: 3/4;
   object-fit: cover;
   display: block;
-  cursor: pointer;
   transition: opacity 0.2s;
 }
 
@@ -188,21 +187,25 @@
 
 .wishlistBtn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(255,255,255,0.88);
-  border: none;
-  width: 36px;
-  height: 36px;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  transition: background 0.2s;
+  opacity: 0;
+  color: #fff;
+  z-index: 20;
+  background-color: #333333;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.wishlistBtn:hover {
-  background: #fff;
+.slideInner:hover .wishlistBtn {
+  opacity: 1;
 }
 
 .slideInfo {
@@ -217,18 +220,12 @@
   font-weight: 500;
 }
 
-.slidePrice {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--red);
-}
-
-.add-to-cart {
+.addToCart {
   width: 100%;
   background: var(--dark);
   color: #fff;
   border: none;
-  padding: 10px;
+  padding: 12px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -241,90 +238,24 @@
 
 .sliderControls {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 12px;
-  margin-top: 24px;
+  margin: 10px;
 }
 
-.sliderControls button {
+.controlBtn {
   background: none;
   border: 2px solid var(--dark);
-  width: 44px;
-  height: 44px;
-  font-size: 18px;
-  font-weight: 700;
+  width: 24px;
+  height: 16px;
+  padding: 6px 30px;
   transition: 0.2s;
+  cursor: pointer;
 }
 
-.sliderControls button:hover {
+.controlBtn:hover {
   background: var(--dark);
   color: #fff;
-}
-
-/* ─── MODAL ──────────────────────────────────────────────────────────────────── */
-.modalOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.78);
-  z-index: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modalBox {
-  position: relative;
-  background: #fff;
-  max-width: 560px;
-  width: 90%;
-}
-
-.modalBox img {
-  width: 100%;
-  max-height: 70vh;
-  object-fit: contain;
-  display: block;
-}
-
-.modalClose {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: var(--dark);
-  z-index: 10;
-}
-
-.modalPrev,
-.modalNext {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.85);
-  border: none;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.modalPrev {
-  left: -50px;
-}
-
-.modalNext {
-  right: -50px;
-}
-
-@media(max-width:700px){
-  .modalPrev {
-    left: 4px;
-  }
-  .modalNext {
-    right: 4px;
-  }
 }
 
 /* ─── PREFOOTER ──────────────────────────────────────────────────────────────── */

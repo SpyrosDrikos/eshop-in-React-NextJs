@@ -19,7 +19,7 @@ export default function PreFooter({ promises, footerCols }) {
       </div>
       <div className="footerBar">
         <span>📍 Greece</span>
-        <span>© Spyros Drikos All Rights Reserved 2024</span>
+        <span>© Spyros Drikos All Rights Reserved 2026</span>
       </div>
     </>
   );

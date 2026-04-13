@@ -20,8 +20,8 @@ export default function HomePage({ clothes, shoes, hotCategories, promises, foot
   return (
     <>
       <Hero />
-      <HotCategories categories={hotCategories} />
       <ProductSlider clothes={clothes} shoes={shoes} />
+      <HotCategories categories={hotCategories} />
       <PreFooter promises={promises} footerCols={footerCols} />
     </>
   );
