@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useI18n } from "../src/i18n/i18ncontext";
 
-export default function ProductSlider({ clothes, shoes }) {
+export default function ProductSlider({ clothes, shoes, onAddToCart }) {
+  const { t } = useI18n();
   const [category, setCategory] = useState("clothes");
   const [activeSlide, setActiveSlide] = useState(0);
   const [selectedColors, setSelectedColors] = useState({});
@@ -16,7 +18,7 @@ export default function ProductSlider({ clothes, shoes }) {
     return 3;
   };
   const [visible, setVisible] = useState(getVisible());
-  
+
   useEffect(() => {
     const handler = () => setVisible(getVisible());
     window.addEventListener("resize", handler);
@@ -27,7 +29,7 @@ export default function ProductSlider({ clothes, shoes }) {
   const next = () => setActiveSlide(s => (s >= maxSlide ? 0 : s + 1));
   const prev = () => setActiveSlide(s => (s <= 0 ? maxSlide : s - 1));
 
-  useEffect(() => {
+  useEffect(() => { 
     setActiveSlide(0);
   }, [category]);
 
@@ -48,6 +50,21 @@ export default function ProductSlider({ clothes, shoes }) {
     setSelectedSizes(prev => ({ ...prev, [itemTitle]: size }));
   };
 
+
+  const handleAddToCart = (item) => {
+    if (onAddToCart) {
+      // Convert slider item format to product format for cart
+      onAddToCart({
+        id: `slider-${item.title.toLowerCase().replace(/\s+/g, "-")}`,
+        title: item.title,
+        price: item.price,
+        src: item.src,
+        brand: "",
+        qty: 1
+      });
+    }
+  };
+
   return (
     <div className="sliderSection">
       <div className="sliderViewport">
@@ -56,13 +73,16 @@ export default function ProductSlider({ clothes, shoes }) {
           <FontAwesomeIcon icon={faChevronRight} onClick={next} className={`controlBtn`}/>
         </div>
         <div className="sliderTrack" style={{ transform: `translateX(${offset}%)` }}>
-          {items.map((item, i) => (
+          {items.map((item) => (
             <div className="slideCard" key={item.title} style={{ flex: `0 0 ${100 / visible}%` }}>
               <div className="slideInner">
                 <FontAwesomeIcon icon={faHeart} className="wishlistBtn" />
-                <img src={item.src} alt={item.title}/>
+                <img src={item.src} alt={item.title} />
                 <div className="slideInfo">
                   <span className="slideTitle">{item.title}</span>
+                  {item.price && (
+                    <span className="slidePrice">€{item.price.toFixed(2)}</span>
+                  )}
                   <span className="slidePrice">${item.price}</span>
                   
                   <div className="colorSelector">
@@ -96,24 +116,25 @@ export default function ProductSlider({ clothes, shoes }) {
                     </div>
                   </div>
                 </div>
-                <button className="addToCart">ADD TO CART</button>
+                <button className="addToCart" onClick={() => handleAddToCart(item)}>
+                  {t.product.addToCart}
+                </button>
               </div>
             </div>
           ))}
-          
         </div>
         <div className="sliderWrapper">
-          <button 
-            className={`sliderTab${category === "clothes" ? " active" : ""}`} 
+          <button
+            className={`sliderTab${category === "clothes" ? " active" : ""}`}
             onClick={() => setCategory("clothes")}
           >
-            Clothes
+            {t.sections.clothes}
           </button>
-          <button 
-            className={`sliderTab${category === "shoes" ? " active" : ""}`} 
+          <button
+            className={`sliderTab${category === "shoes" ? " active" : ""}`}
             onClick={() => setCategory("shoes")}
           >
-            Shoes
+            {t.sections.shoes}
           </button>
         </div>
       </div>

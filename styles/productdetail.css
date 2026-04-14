@@ -1,0 +1,471 @@
+/* ─── CART BADGE (appended to base.css) ─────────────────────────────────────── */
+
+.cartIconBtn {
+  background: none;
+  border: none;
+  padding: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.cartIconBtn:hover {
+  opacity: 0.7;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--red);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* ─── SLIDE PRICE ────────────────────────────────────────────────────────────── */
+
+.slidePrice {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--red);
+}
+
+/* ─── PRODUCT DETAIL PAGE ────────────────────────────────────────────────────── */
+
+.pdpContainer {
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+@media(max-width: 860px) {
+  .pdpContainer {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ─── PDP GALLERY ────────────────────────────────────────────────────────────── */
+
+.pdpGallery {
+  position: sticky;
+  top: 80px;
+}
+
+.pdpMainImg {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  background: var(--light);
+  display: block;
+}
+
+.pdpThumbRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pdpThumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.pdpThumb.active {
+  border-color: var(--dark);
+}
+
+/* ─── PDP INFO ───────────────────────────────────────────────────────────────── */
+
+.pdpInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pdpBreadcrumb {
+  font-size: 12px;
+  color: #999;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.pdpBreadcrumb span {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.pdpBreadcrumb span:hover {
+  color: var(--red);
+}
+
+.pdpBreadcrumb .sep {
+  cursor: default;
+  color: #ccc;
+}
+
+.pdpBrand {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.pdpTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.pdpRatingRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pdpReviews {
+  font-size: 12px;
+  color: #999;
+}
+
+.pdpPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.pdpPrice {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.pdpOriginalPrice {
+  font-size: 17px;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.pdpSaveBadge {
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--red);
+  color: #fff;
+  padding: 3px 8px;
+}
+
+.pdpDivider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ─── PDP COLOR SELECTOR ─────────────────────────────────────────────────────── */
+
+.pdpLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.pdpLabelValue {
+  font-weight: 400;
+  color: #666;
+}
+
+.pdpColorList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pdpColorBtn {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  background: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.pdpColorBtn:hover {
+  border-color: var(--dark);
+}
+
+.pdpColorBtn.active {
+  border: 2px solid var(--dark);
+  background: var(--light);
+  font-weight: 600;
+}
+
+/* ─── PDP SIZE SELECTOR ──────────────────────────────────────────────────────── */
+
+.pdpSizeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pdpSizeBtn {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  background: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdpSizeBtn:hover {
+  border-color: var(--dark);
+}
+
+.pdpSizeBtn.active {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+}
+
+.pdpSizeError {
+  font-size: 12px;
+  color: var(--red);
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+/* ─── PDP QTY + CTA ──────────────────────────────────────────────────────────── */
+
+.pdpQtyRow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.pdpQtyControl {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  height: 48px;
+}
+
+.pdpQtyControl button {
+  width: 40px;
+  height: 100%;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--dark);
+  transition: background 0.15s;
+}
+
+.pdpQtyControl button:hover {
+  background: var(--light);
+}
+
+.pdpQtyControl span {
+  width: 48px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdpAddBtn {
+  flex: 1;
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  height: 48px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pdpAddBtn:hover {
+  background: var(--red);
+}
+
+.pdpAddBtn.added {
+  background: #2a7a2a;
+}
+
+.pdpWishlistBtn {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  transition: color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.pdpWishlistBtn:hover,
+.pdpWishlistBtn.active {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* ─── PDP DESCRIPTION ACCORDION ─────────────────────────────────────────────── */
+
+.pdpAccordion {
+  border-top: 1px solid var(--border);
+}
+
+.pdpAccordionItem {
+  border-bottom: 1px solid var(--border);
+}
+
+.pdpAccordionHead {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 14px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: var(--dark);
+  text-align: left;
+}
+
+.pdpAccordionHead:hover {
+  color: var(--red);
+}
+
+.pdpAccordionBody {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #555;
+  padding-bottom: 16px;
+}
+
+/* ─── ADD TO CART TOAST ──────────────────────────────────────────────────────── */
+
+.cartToast {
+  position: fixed;
+  bottom: 80px;
+  right: 24px;
+  background: var(--dark);
+  color: #fff;
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.cartToast.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.cartToast button {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+/* ─── RELATED PRODUCTS ───────────────────────────────────────────────────────── */
+
+.pdpRelated {
+  max-width: 1200px;
+  margin: 0 auto 64px;
+  padding: 0 24px;
+}
+
+.pdpRelatedTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin-bottom: 24px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+
+.pdpRelatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+/* ─── BACK BUTTON ────────────────────────────────────────────────────────────── */
+
+.pdpBackBtn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #777;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  margin: 24px 24px 0;
+  transition: color 0.15s;
+}
+
+.pdpBackBtn:hover {
+  color: var(--red);
+}

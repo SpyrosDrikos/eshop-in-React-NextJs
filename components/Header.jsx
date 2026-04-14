@@ -1,13 +1,21 @@
-import { faBagShopping, faHeart, faSearch, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash, faHeart, faSearch, faShoppingCart, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
 import SearchDropdown from "./SearchDropdown";
 import { hotSearches, recommendedSearches } from "../src/data/constants";
+import { useI18n } from "../src/i18n/i18ncontext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 // ─── TOPBAR ─────────────────────────────────────────────────────────────────────
 function TopBar() {
-  const navLinks = ["Home", "Company", "Terms of Use", "Contact", "Privacy Policy (EU)"];
-  
+  const { t } = useI18n();
+  const navLinks = [
+    t.nav.home,
+    t.nav.company,
+    t.nav.termsOfUse,
+    t.nav.contact,
+    t.nav.privacyPolicy
+  ];
   return (
     <div className="topBar">
       <div className="topSocials">
@@ -50,13 +58,18 @@ function SidebarDropdownItem({ cat }) {
 }
 
 function Sidebar({ open, onClose, sidebarCategories }) {
+  const { t } = useI18n();
   return (
     <>
       <div className={`sidebarOverlay${open ? " open" : ""}`} onClick={onClose} />
       <nav className={`sidebar${open ? " open" : ""}`}>
         <div className="sidebarHead">
-          <span>MY ESHOP</span>
+          <span>{t.sidebar.menu}</span>
           <FontAwesomeIcon icon={faXmark} className="sidebarClose" onClick={onClose} />
+        </div>
+        <div className="sidebarSearch">
+          <input placeholder={t.header.search} />
+          <FontAwesomeIcon icon={faSearch} className="searchBtn" />
         </div>
         {sidebarCategories.map(cat => <SidebarDropdownItem key={cat.label} cat={cat} />)}
       </nav>
@@ -67,34 +80,89 @@ function Sidebar({ open, onClose, sidebarCategories }) {
 
 
 // ─── MEGAMENU NAV ──────────────────────────────────────────────────────────────
-function MegaNav({ megamenu }) {
+
+const LINK_TO_CATEGORY = {
+  "Dresses": "dresses", "Outfits": "dresses",
+  "Jeans": "jeans",
+  "Blouses": "blouses",
+  "Dresses": "dresses",
+  "Jumpsuits": "dresses",
+  "Skirts": "skirts",
+  "Hoodies": "mens-pants", "Shirts": "mens-pants",
+  "Pants": "mens-pants", "Jackets": "mens-pants", "Sweaters": "mens-pants",
+  "Bags": "accessories", "Beauty": "accessories", "Sunglasses": "accessories",
+  "Belts": "accessories", "Accessories": "accessories",
+  "Jewelry": "accessories", "Wallets": "accessories", "Watches": "accessories",
+  "New Arrivals": "dresses", "Best Sellers": "dresses",
+  "Summer Collection": "dresses", "Seasonal Picks": "dresses",
+  "Sneakers": "accessories", "Athletic Shoes": "accessories",
+  "Boots": "accessories", "Sandals": "accessories", "Platforms": "accessories",
+  "Underwear": "blouses",
+};
+
+function MegaNav({ megamenu, setPage }) {
+  const { t } = useI18n();
+
+  const CATEGORY_SLUGS = {
+    WOMEN: "dresses",
+    MEN: "mens-pants",
+    ACCESSORIES: "accessories",
+  };
+
   return (
     <nav className="megamenuNav">
-      <a href="#">NEW ARRIVALS</a>
+      <a href="#" onClick={e => { e.preventDefault(); setPage("category:dresses"); }}>{t.nav.newArrivals}</a>
       {megamenu.map(item => (
         <div className="megaItem" key={item.label}>
-          <a href="#">{item.label}</a>
+          <a
+            href="#"
+            onClick={e => { e.preventDefault(); setPage(`category:${CATEGORY_SLUGS[item.label] || "dresses"}`); }}
+          >
+            {item.label}
+          </a>
           <div className="megadrop">
             {item.cols.map((col, i) => (
               <div className="megaCol" key={i}>
                 {col.title && <div className="megaColTitle">{col.title}</div>}
-                {col.links.map(l => <a key={l} href="#">{l}</a>)}
+                {col.links.map(l => (
+                  <a
+                    key={l}
+                    href="#"
+                    onClick={e => {
+                      e.preventDefault();
+                      const slug = LINK_TO_CATEGORY[l] || CATEGORY_SLUGS[item.label] || "dresses";
+                      setPage(`category:${slug}`);
+                    }}
+                  >
+                    {l}
+                  </a>
+                ))}
               </div>
             ))}
             <div className="megaImg">
               <img src={item.img} alt={item.label} />
-              <button style={{ backgroundColor: item.btnColor }}>SHOW ALL</button>
+              <div className="absolute">
+                <button
+                  style={{ backgroundColor: item.btnColor }}
+                  onClick={() => setPage(`category:${CATEGORY_SLUGS[item.label] || "dresses"}`)}
+                >
+                  SHOW ALL
+                </button>
+              </div>
             </div>
           </div>
         </div>
       ))}
-      <a href="#" className="hotSale"> SALES</a>
+      <a href="#" className="hotSale" onClick={e => { e.preventDefault(); setPage("category:dresses"); }}>
+        {t.nav.sales}
+      </a>
     </nav>
   );
 }
 
 // ─── HEADER ───────────────────────────────────────────────────────────────────
-export default function Header({ page, setPage, megamenu, sidebarCategories }) {
+export default function Header({ page, setPage, megamenu, sidebarCategories, cartCount = 0 }) {
+  const { t } = useI18n();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -121,7 +189,7 @@ export default function Header({ page, setPage, megamenu, sidebarCategories }) {
         <div className="logo" onClick={() => setPage("home")} style={{ cursor: "pointer" }}>
           <span className="logoPlaceholder">MY ESHOP</span>
         </div>
-        <MegaNav megamenu={megamenu} />
+        <MegaNav megamenu={megamenu} setPage={setPage} />
         <div className="headerActions">
           <SearchDropdown
             open={searchOpen}
@@ -130,10 +198,14 @@ export default function Header({ page, setPage, megamenu, sidebarCategories }) {
             recommendedSearches={recommendedSearches}
             onSearch={(query) => console.log("Search for:", query)}
           />
-          <FontAwesomeIcon icon={faSearch} className="iconBtn" onClick={() => setSearchOpen(!searchOpen)} title="Search" />
-          <FontAwesomeIcon icon={faUser} className="iconBtn" onClick={() => setPage("register")} title="Account" />
-          <FontAwesomeIcon icon={faHeart} className="iconBtn" title="Wishlist" />
-          <FontAwesomeIcon icon={faBagShopping} className="iconBtn" onClick={() => setPage("cart")} title="Cart" />
+          <LanguageSwitcher />
+          <FontAwesomeIcon icon={faSearch} className="iconBtn" onClick={() => setSearchOpen(!searchOpen)} title={t.header.search} />
+          <FontAwesomeIcon icon={faUser} className="iconBtn" onClick={() => setPage("register")} title={t.header.account} />
+          <FontAwesomeIcon icon={faHeart} className="iconBtn" title={t.header.wishlist} />
+          <button className="iconBtn cartIconBtn" onClick={() => setPage("cart")} title={t.header.cart}>
+            <FontAwesomeIcon icon={faShoppingCart} />
+            {cartCount > 0 && <span className="cartBadge">{cartCount > 99 ? "99+" : cartCount}</span>}
+          </button>
         </div>
       </header>
     </>
